@@ -1,0 +1,6 @@
+.textinput {
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  border: none;
+}

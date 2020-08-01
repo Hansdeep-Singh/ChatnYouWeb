@@ -1,0 +1,27 @@
+<form #loginForm="ngForm" (ngSubmit)="login()">
+  <ul class="navbar-nav flex-grow-1">
+    <li class="valmess"></li>
+    <li class="position-relative">
+      <div class="txtbox-wrap position-relative">
+        <div class="position-absolute inputlbl">User name</div>
+        <input name="userName" type="text" id="userName" [(ngModel)]="model.userName" class="form-control textinput" />
+      </div>
+      <!-- <span asp-validation-for="Login.Email" class="valmess"></span> -->
+    </li>
+    <li class="position-relative mar-sm">
+      <div class="txtbox-wrap position-relative">
+        <div class="position-absolute inputlbl">Password</div>
+        <input name="password" type="text" id="password" [(ngModel)]="model.password" class="form-control textinput" />
+      </div>
+      <!-- <span asp-validation-for="Login.Password" class="valmess"></span> -->
+    </li>
+
+    <li>
+      <input type="checkbox" name="remember" [(ngModel)]="model.remember" id="remember" />
+      <!-- @Html.LabelFor(m => m.Login.RememberMe, new { @class = " mt-2 text-light" }) -->
+    </li>
+    <li>
+      <input type="submit" class="btn nav-bg border border-info text-light" value="LOGIN" />
+    </li>
+  </ul>
+</form>
