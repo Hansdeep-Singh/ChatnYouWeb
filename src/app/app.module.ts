@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule, Component, OnInit } from "@angular/core";
+import { NgModule, Component, OnInit, Directive } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
@@ -11,8 +11,9 @@ import { SecureComponent } from "./secure/secure.component";
 import { RouterModule, CanActivate } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
 import { NavigationComponent } from "./navigation/navigation.component";
-import { CalendarComponent } from './calendar/calendar.component';
+import { CalendarComponent } from "./calendar/calendar.component";
 
+// @Directive()
 @NgModule({
   declarations: [
     AppComponent,
