@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { catchError, retry } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { loginModel } from "../models/login";
+import { regModel } from "../models/register";
 const httpOptions = {
   headers: new HttpHeaders({
     "Content-Type": "application/json",
@@ -28,5 +29,27 @@ export class Service {
   }
   isloggedin() {
     return !!localStorage.getItem("logged");
+  }
+
+  getCountries(): Observable<any[]> {
+    return this.http
+      .get(this.ROOT_URL + "api/Location/Countries", httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
+  getCities(countryId: number): Observable<any[]> {
+    return this.http
+      .get(this.ROOT_URL + "api/Location/Cities/" + countryId, httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
+  registerUser(remodel: regModel): Observable<regModel> {
+    return this.http
+      .post<regModel>(
+        this.ROOT_URL + "api/User/Register/",
+        remodel,
+        httpOptions
+      )
+      .pipe(catchError(this.handleError));
   }
 }

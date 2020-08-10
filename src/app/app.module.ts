@@ -12,6 +12,8 @@ import { RouterModule, CanActivate } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
 import { NavigationComponent } from "./navigation/navigation.component";
 import { CalendarComponent } from "./calendar/calendar.component";
+import { MatSliderModule } from "@angular/material/slider";
+import { MatInputModule } from "@angular/material/input";
 
 // @Directive()
 @NgModule({
@@ -25,6 +27,8 @@ import { CalendarComponent } from "./calendar/calendar.component";
     CalendarComponent,
   ],
   imports: [
+    MatSliderModule,
+    MatInputModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

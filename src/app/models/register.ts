@@ -6,6 +6,8 @@ export class regModel {
     public gender: string,
     public age: number,
     public country: string,
-    public state: string
+    public countryId: number,
+    public city: string,
+    public cityId: number
   ) {}
 }

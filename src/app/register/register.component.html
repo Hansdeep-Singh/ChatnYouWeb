@@ -2,12 +2,13 @@
   <div class="container mt-3 bg-2 pt-2 pb-2 white-bg shadow rounded">
     <div class="row">
       <div class="col">
-        <h2 class="head-3">Create your account and start chating</h2>
+        <h2 class="head-3">Create your account and start chatting</h2>
       </div>
     </div>
 
     <div class="row mt-2">
       <div class="col">
+
         <div class="txtbox-wrap position-relative">
           <div class="position-absolute inputlbl">Email Address</div>
           <input required [(ngModel)]="model.emailAddress" name="emailAddess" type="text" id="emailAddress"
@@ -62,13 +63,20 @@
         <div class="txtbox-wrap position-relative">
           <div class="position-absolute inputlbl">Country</div>
 
-          <input [(ngModel)]="model.country" name="country" type="text" class="form-control" />
+          <select [(ngModel)]="model.country" class="form-control" (change)="selected()" name="country" id="country">
+            <option *ngFor="let country of countries" [ngValue]="country.countryId">
+              {{country.countryName}}</option>
+          </select>
+          <!-- <input [(ngModel)]="model.country" name="country" type="text" class="form-control" /> -->
         </div>
       </div>
       <div class="col">
         <div class="txtbox-wrap position-relative">
-          <div class="position-absolute inputlbl">State</div>
-          <input [(ngModel)]="model.state" name="state" type="text" class="form-control" />
+          <div class="position-absolute inputlbl">City</div>
+          <select [(ngModel)]="model.city" class="form-control" name="city" id="city">
+            <option *ngFor="let city of cities" [ngValue]="city.cityId">
+              {{city.cityName}}</option>
+          </select>
         </div>
       </div>
     </div>
