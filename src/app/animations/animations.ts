@@ -7,28 +7,24 @@ import {
   animate,
   style,
   query,
+  state,
 } from "@angular/animations";
 
-// var fn = function () {
-//   $(".inputlbl", this).animate(
-//     { top: "-4px", right: "12px", opacity: 0.5 },
-//     500,
-//     function () {}
-//   );
-// };
-// var fnlbl = function () {
-//   $(this).animate(
-//     { top: "-4px", right: "12px", opacity: 0.5 },
-//     500,
-//     function () {}
-//   );
-// };
-
-export const transAnimation = animation([
-  style({
-    top: "-4px",
-    right: "12px",
-    opacity: "0.5",
-  }),
-  animate("500"),
+export const labelAnimation = animation([
+  // ...
+  state(
+    "over",
+    style({
+      top: "-4px",
+      right: "12px",
+      opacity: 0.5,
+    })
+  ),
+  state(
+    "left",
+    style({
+      opacity: 1,
+    })
+  ),
+  transition("left => over", [animate("0.5s")]),
 ]);

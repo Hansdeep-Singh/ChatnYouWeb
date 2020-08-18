@@ -11,8 +11,8 @@
       <app-calendar></app-calendar>
       <div class="row flex-container">
         <div class="col col-xl-6 text-center">
-          <div class="btn btnrego btn-primary">Create Account</div>
-          <div class="rego position-absolute">
+          <button (click)="regBtnFn()" class="btn btnrego btn-primary">Create Account</button>
+          <div [@regDown]="anime?'down':'up'" class="rego position-absolute">
             <app-register></app-register>
           </div>
         </div>

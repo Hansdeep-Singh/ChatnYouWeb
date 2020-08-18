@@ -381,7 +381,8 @@ input:focus {
 
 .rego {
   z-index: 99;
-  display: none;
+  visibility: hidden;
+  height: 0px;
 }
 
 .navbar-nav li {

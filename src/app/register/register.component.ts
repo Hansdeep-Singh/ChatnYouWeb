@@ -3,7 +3,7 @@ import { regModel } from "../models/register";
 import { Service } from "../api/service";
 import { Observable } from "rxjs";
 import { Router } from "@angular/router";
-import { transAnimation } from "../animations/animations";
+import { labelAnimation } from "../animations/animations";
 import {
   trigger,
   transition,
@@ -18,7 +18,6 @@ import {
   selector: "app-register",
   animations: [
     trigger("labelAnimate", [
-      // ...
       state(
         "over",
         style({
