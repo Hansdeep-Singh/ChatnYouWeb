@@ -13,7 +13,8 @@ const httpOptions = {
   providedIn: "root",
 })
 export class Service {
-  readonly ROOT_URL = "http://localhost:63580/";
+  readonly ROOT_URL = "http://hansdeep-001-site35.htempurl.com/";
+  //readonly ROOT_URL = "http://localhost:63580/";
   handleError;
   constructor(private http: HttpClient) {}
   logOut() {
@@ -27,6 +28,22 @@ export class Service {
       httpOptions
     );
   }
+
+  isEmailRegistered(email: string): Observable<boolean> {
+    return this.http
+      .get(this.ROOT_URL + "api/User/IsEmailRegistered/" + email, httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
+  isUsernameRegistered(username: string): Observable<boolean> {
+    return this.http
+      .get(
+        this.ROOT_URL + "api/User/IsUsernameRegistered/" + username,
+        httpOptions
+      )
+      .pipe(catchError(this.handleError));
+  }
+
   isloggedin() {
     return !!localStorage.getItem("logged");
   }

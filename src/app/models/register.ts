@@ -5,9 +5,7 @@ export class regModel {
     public passWord: string,
     public gender: string,
     public age: number,
-    public country: string,
     public countryId: number,
-    public city: string,
     public cityId: number
   ) {}
 }

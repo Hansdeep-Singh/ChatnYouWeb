@@ -4,19 +4,16 @@
 // Write your JavaScript code.
 
 $(document).ready(function () {
+  // var fn = function () { $(".inputlbl", this).animate({ top: "-4px", right: "12px", opacity: 0.5 }, 500, function () { }); };
+  // var fnlbl = function () { $(this).animate({ top: "-4px", right: "12px", opacity: 0.5 }, 500, function () { }); };
+  // $(".txtbox-wrap").focusin(fn);
+  // $(".inputlbl").hover(fnlbl);
 
-    var fn = function () { $(".inputlbl", this).animate({ top: "-4px", right: "12px", opacity: 0.5 }, 500, function () { }); };
-    var fnlbl = function () { $(this).animate({ top: "-4px", right: "12px", opacity: 0.5 }, 500, function () { }); };
-    $(".txtbox-wrap").focusin(fn);
-    $(".inputlbl").hover(fnlbl);
+  $(".btnrego").click(function () {
+    $(".rego").slideToggle();
+  });
 
-    $(".btnrego").click(function () {
-        $(".rego").slideToggle();
-     
-
-    });
- 
-    $(".trigmsg").click(function () {
-        $(".newchats").slideToggle();
-    });
+  // $(".trigmsg").click(function () {
+  //     $(".newchats").slideToggle();
+  // });
 });
