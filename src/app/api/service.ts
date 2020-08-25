@@ -13,8 +13,8 @@ const httpOptions = {
   providedIn: "root",
 })
 export class Service {
-  readonly ROOT_URL = "http://hansdeep-001-site35.htempurl.com/";
-  //readonly ROOT_URL = "http://localhost:63580/";
+  //readonly ROOT_URL = "http://hansdeep-001-site35.htempurl.com/";
+  readonly ROOT_URL = "http://localhost:63580/";
   handleError;
   constructor(private http: HttpClient) {}
   logOut() {

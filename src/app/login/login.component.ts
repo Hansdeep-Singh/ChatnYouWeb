@@ -42,11 +42,14 @@ export class LoginComponent implements OnInit {
   animatePassword = false;
   constructor(private service: Service, private _router: Router) {}
   login() {
-    this.service.logUserin(this.model).subscribe((data: loginModel) => {
+    this.service.logUserin(this.model).subscribe((data: any) => {
       console.log(data);
-      if (data) {
+      if (data.logged) {
         this._router.navigate(["./secure"]);
-        localStorage.setItem("logged", "true");
+        localStorage.setItem("token", data.token);
+      }
+      if (!data.logged) {
+        alert("Not Logged");
       }
     });
   }

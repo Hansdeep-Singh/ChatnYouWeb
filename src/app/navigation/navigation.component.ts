@@ -15,10 +15,11 @@ export class NavigationComponent implements OnInit {
   logOut() {
     this._navService.logOut().subscribe();
     localStorage.clear();
-    this._router.navigate(["./app"]);
+    this.logged = false;
+    this._router.navigate(["/"]);
   }
   test() {
-    alert(this.logged);
+    alert(localStorage.getItem("token"));
   }
   ngOnInit() {
     if (localStorage.getItem("logged") == "true") {
