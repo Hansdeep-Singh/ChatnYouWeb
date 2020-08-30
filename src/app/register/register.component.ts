@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { regModel } from "../models/register";
+import { userModel } from "../models/user";
 import { Service } from "../api/service";
 import { Observable } from "rxjs";
 import { Router } from "@angular/router";
@@ -42,7 +42,7 @@ import {
 })
 export class RegisterComponent implements OnInit {
   constructor(private service: Service, private _router: Router) {}
-  public model = new regModel("", "", "", "", 0, 0, 0);
+  public model = new userModel("", "", "", "", 0, 0, 0);
   countries: any[];
   cities: any[];
   isUserExist: boolean;

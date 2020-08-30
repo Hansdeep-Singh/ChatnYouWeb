@@ -21,9 +21,14 @@ export class NavigationComponent implements OnInit {
   test() {
     alert(localStorage.getItem("token"));
   }
-  ngOnInit() {
-    if (localStorage.getItem("logged") == "true") {
-      this.logged = true;
-    }
+
+  testAuthorise() {
+    this._navService.testAuthorise().subscribe();
   }
+
+  showLogin(isLogged: boolean) {
+    this.logged = isLogged;
+  }
+
+  ngOnInit() {}
 }

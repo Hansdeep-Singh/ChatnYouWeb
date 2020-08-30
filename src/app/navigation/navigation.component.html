@@ -11,11 +11,12 @@
             <i class="fas fa-1x pad-ico fa-angle-double-down"></i></span>
         </button>
         <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-          <app-login></app-login>
+          <app-login (isLoggedEmitter)="showLogin($event)"></app-login>
         </div>
       </div>
       <button (click)="logOut()">LogOut</button>
       <button (click)="test()">Test</button>
+      <button (click)="testAuthorise()">Test Authorise</button>
     </nav>
   </header>
 </div>
@@ -36,6 +37,7 @@
       </div>
       <button (click)="logOut()">LogOut</button>
       <button (click)="test()">Test</button>
+      <button (click)="testAuthorise()">Test Authorise</button>
     </nav>
   </header>
 </div>

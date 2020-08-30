@@ -1,4 +1,4 @@
-export class regModel {
+export class userModel {
   constructor(
     public emailAddress: string,
     public userName: string,

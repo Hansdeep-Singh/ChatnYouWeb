@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { catchError, retry } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { loginModel } from "../models/login";
-import { regModel } from "../models/register";
+import { userModel } from "../models/user";
 const httpOptions = {
   headers: new HttpHeaders({
     "Content-Type": "application/json",
@@ -19,6 +19,10 @@ export class Service {
   constructor(private http: HttpClient) {}
   logOut() {
     return this.http.post(this.ROOT_URL + "api/User/LogOut/", httpOptions);
+  }
+
+  testAuthorise() {
+    return this.http.get(this.ROOT_URL + "api/User/Test/", httpOptions);
   }
 
   logUserin(logmodel: loginModel): Observable<loginModel> {
@@ -60,9 +64,9 @@ export class Service {
       .pipe(catchError(this.handleError));
   }
 
-  registerUser(remodel: regModel): Observable<regModel> {
+  registerUser(remodel: userModel): Observable<userModel> {
     return this.http
-      .post<regModel>(
+      .post<userModel>(
         this.ROOT_URL + "api/User/Register/",
         remodel,
         httpOptions
