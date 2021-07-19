@@ -13,6 +13,7 @@ import { HomeComponent } from "./home/home.component";
 import { NavigationComponent } from "./navigation/navigation.component";
 import { CalendarComponent } from "./calendar/calendar.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { AuthInterceptor } from "./auth/auth.interceptor";
 
 // @Directive()
 @NgModule({
@@ -38,7 +39,14 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     ]),
   ],
 
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule implements OnInit {

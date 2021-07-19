@@ -4,11 +4,6 @@ import { catchError, retry } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { loginModel } from "../models/login";
 import { userModel } from "../models/user";
-const httpOptions = {
-  headers: new HttpHeaders({
-    "Content-Type": "application/json",
-  }),
-};
 @Injectable({
   providedIn: "root",
 })
@@ -16,35 +11,26 @@ export class Service {
   //readonly ROOT_URL = "http://hansdeep-001-site35.htempurl.com/";
   readonly ROOT_URL = "http://localhost:63580/";
   handleError;
+  apiPath: string;
   constructor(private http: HttpClient) {}
   logOut() {
-    return this.http.post(this.ROOT_URL + "api/User/LogOut/", httpOptions);
+    return this.http.get(this.ROOT_URL + "api/User/LogOut/");
   }
 
   testAuthorise() {
-    return this.http.get(this.ROOT_URL + "api/User/Test/", httpOptions);
+    return this.http.get(this.ROOT_URL + "api/User/Test/");
   }
 
   logUserin(logmodel: loginModel): Observable<loginModel> {
     return this.http.post<loginModel>(
       this.ROOT_URL + "api/User/Login/",
-      logmodel,
-      httpOptions
+      logmodel
     );
   }
 
-  isEmailRegistered(email: string): Observable<boolean> {
+  getPramStringRetBool(Id: string): Observable<boolean> {
     return this.http
-      .get(this.ROOT_URL + "api/User/IsEmailRegistered/" + email, httpOptions)
-      .pipe(catchError(this.handleError));
-  }
-
-  isUsernameRegistered(username: string): Observable<boolean> {
-    return this.http
-      .get(
-        this.ROOT_URL + "api/User/IsUsernameRegistered/" + username,
-        httpOptions
-      )
+      .get(this.ROOT_URL + this.apiPath + Id)
       .pipe(catchError(this.handleError));
   }
 
@@ -52,25 +38,33 @@ export class Service {
     return !!localStorage.getItem("logged");
   }
 
-  getCountries(): Observable<any[]> {
+  getRetArray(): Observable<any[]> {
     return this.http
-      .get(this.ROOT_URL + "api/Location/Countries", httpOptions)
+      .get(this.ROOT_URL + this.apiPath)
       .pipe(catchError(this.handleError));
   }
 
-  getCities(countryId: number): Observable<any[]> {
+  getRetSingle(): Observable<any[]> {
     return this.http
-      .get(this.ROOT_URL + "api/Location/Cities/" + countryId, httpOptions)
+      .get(this.ROOT_URL + this.apiPath)
       .pipe(catchError(this.handleError));
   }
 
-  registerUser(remodel: userModel): Observable<userModel> {
+  getPramNumberRetArray(Id: number): Observable<any[]> {
     return this.http
-      .post<userModel>(
-        this.ROOT_URL + "api/User/Register/",
-        remodel,
-        httpOptions
-      )
+      .get(this.ROOT_URL + this.apiPath + Id)
+      .pipe(catchError(this.handleError));
+  }
+
+  getPramStringRetArray(Id: string): Observable<any[]> {
+    return this.http
+      .get(this.ROOT_URL + this.apiPath + Id)
+      .pipe(catchError(this.handleError));
+  }
+
+  postModel(model: any): Observable<any> {
+    return this.http
+      .post<any>(this.ROOT_URL + this.apiPath, model)
       .pipe(catchError(this.handleError));
   }
 }

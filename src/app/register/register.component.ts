@@ -56,9 +56,8 @@ export class RegisterComponent implements OnInit {
   animateGender = false;
 
   regUser() {
-    console.log(this.model);
-    this.service.registerUser(this.model).subscribe((data: any) => {
-      console.log(data);
+    this.service.apiPath = "api/User/Register/";
+    this.service.postModel(this.model).subscribe((data: any) => {
       if (data.result) {
         this._router.navigate(["./secure"]);
         localStorage.setItem("token", data.token);
@@ -66,26 +65,30 @@ export class RegisterComponent implements OnInit {
     });
   }
   Countries() {
+    this.service.apiPath = "api/Location/Countries/";
     return this.service
-      .getCountries()
+      .getRetArray()
       .subscribe((countries) => (this.countries = countries));
   }
   selected() {
+    this.service.apiPath = "api/Location/Cities/";
     return this.service
-      .getCities(this.model.countryId)
+      .getPramNumberRetArray(this.model.countryId)
       .subscribe((cities) => (this.cities = cities));
   }
   isEmailRegistered() {
+    this.service.apiPath = "api/User/IsEmailRegistered/";
     this.service
-      .isEmailRegistered(this.model.emailAddress)
+      .getPramStringRetBool(this.model.emailAddress)
       .subscribe((data: boolean) => {
         this.isEmailExist = data;
       });
   }
 
   isUsernameRegistered() {
+    this.service.apiPath = "api/User/IsUsernameRegistered/";
     this.service
-      .isUsernameRegistered(this.model.userName)
+      .getPramStringRetBool(this.model.userName)
       .subscribe((data: boolean) => {
         this.isUserExist = data;
       });

@@ -46,7 +46,6 @@ export class LoginComponent implements OnInit {
   constructor(private service: Service, private _router: Router) {}
   login() {
     this.service.logUserin(this.model).subscribe((data: any) => {
-      console.log(data);
       if (data.logged) {
         this._router.navigate(["./secure"]);
         this.isLogged = true;
