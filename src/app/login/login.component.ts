@@ -14,7 +14,6 @@ import {
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"],
   animations: [
     trigger("labelAnimate", [
       state(

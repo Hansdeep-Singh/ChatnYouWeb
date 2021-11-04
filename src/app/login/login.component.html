@@ -1,5 +1,5 @@
 <form #loginForm="ngForm" (ngSubmit)="login()">
-  <ul class="navbar-nav flex-grow-1">
+  <ul class="navbar-nav d-flex align-items-center">
     <li class="valmess"></li>
     <li class="position-relative">
       <div class="txtbox-wrap position-relative">
@@ -19,11 +19,14 @@
     </li>
 
     <li>
-      <input type="checkbox" name="remember" [(ngModel)]="model.remember" id="remember" />
-      <!-- @Html.LabelFor(m => m.Login.RememberMe, new { @class = " mt-2 text-light" }) -->
+      <div class="form-check form-switch">
+        <input class="form-check-input bg-second" [(ngModel)]="model.remember"  id="remember" type="checkbox" id="flexSwitchCheckChecked" checked>
+        <label class="form-check-label text-light" for="flexSwitchCheckChecked">Remember Me</label>
+      </div>
     </li>
+  
     <li>
-      <input type="submit" class="btn nav-bg border border-info text-light" value="LOGIN" />
+      <input type="submit" value="LOGIN" />
     </li>
   </ul>
 </form>

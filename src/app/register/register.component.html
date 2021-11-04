@@ -1,5 +1,5 @@
 <form #regForm="ngForm" (ngSubmit)="regUser()">
-  <div class="container mt-3 bg-2 pt-2 pb-2 white-bg shadow rounded">
+  <div class="container mt-3 bg-2 pt-2 pb-2 position-relative shadow rounded">
     <div class="row">
       <div class="col">
         <h2 class="head-3">Create your account and start chatting</h2>
@@ -132,7 +132,7 @@
 
     <div class="row mt-2">
       <div class="col text-center">
-        <input type="submit" [disabled]="regForm.invalid || isUserExist" class="btn nav-bg text-light"
+        <input type="submit" [disabled]="regForm.invalid || isUserExist" 
           value="Start Chat" />
       </div>
     </div>

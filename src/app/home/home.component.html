@@ -3,16 +3,16 @@
     <div class="col-lg-6">
       <div class="row flex-container">
         <div class="col text-center">
-          <h1 class="head-2 font-montserrat col-violet">
+          <h1>
             Its as simple as it gets !
           </h1>
         </div>
       </div>
       <app-calendar></app-calendar>
-      <div class="row flex-container">
-        <div class="col col-xl-6 text-center">
-          <button (click)="regBtnFn()" class="btn btnrego btn-primary">Create Account</button>
-          <div [@regDown]="anime?'down':'up'" class="rego position-absolute">
+      <div class="row">
+        <div class="col position-relative text-center">
+          <button (click)="regBtnFn()">Create Account</button>
+          <div [@regDown]="anime?'down':'up'" class="rego">
             <app-register></app-register>
           </div>
         </div>
@@ -24,12 +24,12 @@
         </div>
       </div>
       <div class="row">
-        <div class="text-center flex-column col">
+        <div class="text-center flex-column col-sm">
           <img src="../assets/img/pic1.jpg" class="img-fluid rounded shadow shadow-cus rounded-circle" />
           <h1>Wow</h1>
           <p>I finally found my perfect match, thanks to chatnYou</p>
         </div>
-        <div class="text-center col">
+        <div class="text-center col-sm">
           <img src="../assets/img/pic2.jpg" class="img-fluid rounded shadow shadow-cus rounded-circle" />
           <h1>Damn</h1>
           <p>
@@ -37,7 +37,7 @@
             for the perfect friend, or more.
           </p>
         </div>
-        <div class="text-center col">
+        <div class="text-center col-sm">
           <img src="../assets/img/pic3.jpg" class="img-fluid rounded shadow shadow-cus rounded-circle" />
           <h1>^-^</h1>
           <p>
@@ -67,13 +67,13 @@
                   FREE</span></i>
             </li>
           </ul>
-        </div>
+        </div>Apolo
       </div>
     </div>
     <div class="col-lg-6">
       <div class="row">
         <div class="col text-center">
-          <div class="head-1 font-rubic colr-2">Chat-n-you is a Free Chat</div>
+         <h1>Chat-n-you is a Free Chat</h1>
         </div>
       </div>
       <div class="row">
