@@ -43,8 +43,9 @@ export class LoginComponent implements OnInit {
   isLogged = false;
 
   constructor(private service: Service, private _router: Router) {}
+
   login() {
-    this.service.logUserin(this.model).subscribe((data: any) => {
+    this.service.postMethodWithReturn(this.model,'User','Login').subscribe((data: any) => {
       if (data.logged) {
         this._router.navigate(["./secure"]);
         this.isLogged = true;
@@ -57,6 +58,7 @@ export class LoginComponent implements OnInit {
       }
     });
   }
+
   animateUserNameFn() {
     this.animateUserName = true;
   }

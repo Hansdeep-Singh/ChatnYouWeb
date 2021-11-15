@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  ROOT_URL: "http://localhost:63580/",
+  //ROOT_URL: "http://hansdeep-001-site35.htempurl.com/"
 };
 
 /*

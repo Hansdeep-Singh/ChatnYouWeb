@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+// import { MatIconModule } from "@angular/material/icon";
 import {
   trigger,
   transition,
@@ -24,6 +25,7 @@ import { bindNodeCallback } from "rxjs";
         "up",
         style({
           opacity: 0,
+          visibility: "hidden",
         })
       ),
       transition("down => up", [animate("0.5s")]),

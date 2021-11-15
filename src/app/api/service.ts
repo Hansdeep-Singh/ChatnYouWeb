@@ -4,12 +4,13 @@ import { catchError, retry } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { loginModel } from "../models/login";
 import { userModel } from "../models/user";
+import { environment } from "src/environments/environment";
+import { appConsts } from "src/app/constants/const";
 @Injectable({
   providedIn: "root",
 })
 export class Service {
-  //readonly ROOT_URL = "http://hansdeep-001-site35.htempurl.com/";
-  readonly ROOT_URL = "http://localhost:63580/";
+  readonly ROOT_URL = environment.ROOT_URL;
   handleError;
   apiPath: string;
   constructor(private http: HttpClient) {}
@@ -28,14 +29,27 @@ export class Service {
     );
   }
 
+  postMethodWithReturn(
+    model: any,
+    controller: string,
+    method: string
+  ): Observable<any> {
+    const route = `api/${controller}/${method}/`;
+    return this.http.post<any>(this.ROOT_URL + route, model);
+  }
+
   getPramStringRetBool(Id: string): Observable<boolean> {
     return this.http
       .get(this.ROOT_URL + this.apiPath + Id)
       .pipe(catchError(this.handleError));
   }
 
-  isloggedin() {
-    return !!localStorage.getItem("logged");
+  isloggedin(): boolean {
+    return !!localStorage.getItem("token");
+  }
+
+  test() {
+    alert();
   }
 
   getRetArray(): Observable<any[]> {
