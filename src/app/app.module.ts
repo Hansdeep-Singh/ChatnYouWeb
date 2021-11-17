@@ -34,10 +34,10 @@ import { NotifyComponent } from './notify/notify.component';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: "", component: HomeComponent, pathMatch: "full" },
-      { path: "secure", component: SecureComponent },
-      { path: "login", component: LoginComponent },
-    ]),
+    { path: "", component: HomeComponent, pathMatch: "full" },
+    { path: "secure", component: SecureComponent },
+    { path: "login", component: LoginComponent },
+], { relativeLinkResolution: 'legacy' }),
   ],
 
   providers: [
