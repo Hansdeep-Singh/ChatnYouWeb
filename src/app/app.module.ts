@@ -13,6 +13,7 @@ import { HomeComponent } from "./home/home.component";
 import { NavigationComponent } from "./navigation/navigation.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AuthInterceptor } from "./auth/auth.interceptor";
+import { NotifyComponent } from './notify/notify.component';
 
 
 // @Directive()
@@ -24,6 +25,7 @@ import { AuthInterceptor } from "./auth/auth.interceptor";
     SecureComponent,
     HomeComponent,
     NavigationComponent,
+    NotifyComponent,
   ],
   imports: [
     BrowserModule,

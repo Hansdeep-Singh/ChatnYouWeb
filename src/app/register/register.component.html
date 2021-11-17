@@ -1,4 +1,4 @@
-<form #regForm="ngForm" (ngSubmit)="regUser()">
+<form id="registerForm" #regForm="ngForm" (ngSubmit)="regUser()">
   <div class="container mt-3 bg-2 pt-2 pb-2 position-relative shadow rounded">
     <div class="row">
       <div class="col">
@@ -9,11 +9,11 @@
       <div class="col">
 
         <div class="txtbox-wrap position-relative">
-          <div [@labelAnimate]="animateEmail?'over':'left'" class="position-absolute inputlbl">Email Address</div>
+          <div [@animeTrigger]="animateEmail?'over':'left'" class="position-absolute inputlbl">Email Address</div>
           <input (focus)="animateEmailFn()" (mouseover)="animateEmailFn()" required email
             [(ngModel)]="model.emailAddress" name="emailAddess" type="text" id="emailAddress" class="form-control"
             #emailAddress="ngModel" />
-          <div *ngIf="emailAddress.invalid && (emailAddress.dirty || emailAddress.touched)" class="alert alert-danger">
+          <div *ngIf="emailAddress.invalid && (emailAddress.dirty || emailAddress.touched)">
             <div *ngIf="isEmailExist">Email Exists</div>
             <div *ngIf="emailAddress.errors.required">
               Email Address is required
@@ -30,12 +30,12 @@
     <div class="row mt-2">
       <div class="col">
         <div class="txtbox-wrap position-relative">
-          <div [@labelAnimate]="animateUserName?'over':'left'" class="position-absolute inputlbl">Chat user name</div>
+          <div [@animeTrigger]="animateUserName?'over':'left'" class="position-absolute inputlbl">Chat user name</div>
           <input (focus)="animateUserNameFn()" (mouseover)="animateUserNameFn()" required minlength="4"
             [(ngModel)]="model.userName" name="userName" (blur)="isUsernameRegistered()" type=" text"
             class="form-control" #userName="ngModel" />
           <div *ngIf="isUserExist">User Exists</div>
-          <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="alert alert-danger">
+          <div *ngIf="userName.invalid && (userName.dirty || userName.touched)">
 
             <div *ngIf="userName.errors.required">
               UserName is required.
@@ -52,11 +52,11 @@
     <div class="row mt-2">
       <div class="col">
         <div class="txtbox-wrap position-relative">
-          <div [@labelAnimate]="animatePassword?'over':'left'" class="position-absolute inputlbl">Password</div>
+          <div [@animeTrigger]="animatePassword?'over':'left'" class="position-absolute inputlbl">Password</div>
           <input (focus)="animatePasswordFn()" (mouseover)="animatePasswordFn()" required minlength="6"
             [(ngModel)]="model.passWord" name="passWord" type="password" id="passWord" class="form-control"
             #passWord="ngModel" />
-          <div *ngIf="passWord.invalid && (passWord.dirty || passWord.touched)" class="alert alert-danger">
+          <div *ngIf="passWord.invalid && (passWord.dirty || passWord.touched)">
             <div *ngIf="passWord.errors.required">
               Password is required
             </div>
@@ -79,7 +79,7 @@
     <div class="row mt-2">
       <div class="col">
         <div class="txtbox-wrap position-relative">
-          <div [@labelAnimate]="animateGender?'over':'left'" class="position-absolute inputlbl">Gender</div>
+          <div [@animeTrigger]="animateGender?'over':'left'" class="position-absolute inputlbl">Gender</div>
           <select (focus)="animateGenderFn()" (mouseover)="animateGenderFn()" [(ngModel)]="model.gender"
             class="form-control" name="gender" id="gender">
             <option value="male">Male</option>
@@ -90,10 +90,10 @@
       </div>
       <div class="col">
         <div class="txtbox-wrap position-relative">
-          <div [@labelAnimate]="animateAge?'over':'left'" class="position-absolute inputlbl">Age</div>
+          <div [@animeTrigger]="animateAge?'over':'left'" class="position-absolute inputlbl">Age</div>
           <input (focus)="animateAgeFn()" (mouseover)="animateAgeFn()" [(ngModel)]="model.age" name="age" type="number"
             class="form-control" #age="ngModel" />
-          <div *ngIf="age.invalid && (age.dirty || age.touched)" class="alert alert-danger">
+          <div *ngIf="age.invalid && (age.dirty || age.touched)">
             <div *ngIf="age.errors.required">
               Age is required
             </div>
@@ -108,7 +108,7 @@
     <div class="row mt-2">
       <div class="col">
         <div class="txtbox-wrap position-relative">
-          <div [@labelAnimate]="animateCountry?'over':'left'" class="position-absolute inputlbl">Country</div>
+          <div [@animeTrigger]="animateCountry?'over':'left'" class="position-absolute inputlbl">Country</div>
 
           <select (focus)="animateCountryFn()" (mouseover)="animateCountryFn()" [(ngModel)]="model.countryId"
             class="form-control" (change)="selected()" name="countryId" id="countryId">
@@ -120,7 +120,7 @@
       </div>
       <div class="col">
         <div class="txtbox-wrap position-relative">
-          <div [@labelAnimate]="animateCity?'over':'left'" class="position-absolute inputlbl">City</div>
+          <div [@animeTrigger]="animateCity?'over':'left'" class="position-absolute inputlbl">City</div>
           <select (focus)="animateCityFn()" (mouseover)="animateCityFn()" [(ngModel)]="model.cityId"
             class="form-control" name="cityId" id="cityId">
             <option selected *ngFor="let city of cities" [ngValue]="city.cityId">
@@ -132,8 +132,7 @@
 
     <div class="row mt-2">
       <div class="col text-center">
-        <input type="submit" [disabled]="regForm.invalid || isUserExist" 
-          value="Start Chat" />
+        <input type="submit" [disabled]="regForm.invalid || isUserExist" value="Start Chat" name="submit" />
       </div>
     </div>
   </div>

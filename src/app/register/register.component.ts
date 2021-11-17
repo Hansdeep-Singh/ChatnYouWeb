@@ -16,27 +16,7 @@ import {
 //top: "-4px", right: "12px", opacity: 0.5
 @Component({
   selector: "app-register",
-  animations: [
-    trigger("labelAnimate", [
-      state(
-        "over",
-        style({
-          top: "-4px",
-          right: "12px",
-          opacity: 0.5,
-        })
-      ),
-      state(
-        "left",
-        style({
-          opacity: 1,
-        })
-      ),
-
-      transition("left => over", [animate("0.5s")]),
-    ]),
-  ],
-
+  animations: [labelAnimation.animeTrigger],
   templateUrl: "./register.component.html",
   styleUrls: ["./register.component.css"],
 })

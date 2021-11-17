@@ -1,29 +1,34 @@
 <div class="container-fluid">
+  <app-notify></app-notify>
+</div>
+<div class="container-fluid">
   <div class="row">
     <!-- Left Section -->
-    <div class="col-lg-6">
-      <div class="row">
-        <div class="col text-center">
-          <h1>
-            Its as simple as it gets !
-          </h1>
+    <div class="col-lg-6 d-flex  justify-content-around flex-column">
+      <div class="container">
+        <div class="row">
+          <div class="col text-center">
+            <h1>
+              Its as simple as it gets !
+            </h1>
+          </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col position-relative text-center">
-          <button (click)="regBtnFn()">Create Account</button>
-          <div [@regDown]="anime?'down':'up'" class="rego">
-            <app-register></app-register>
+
+        <div class="row">
+          <div class="col position-relative text-center">
+            <button (click)="regBtnFn()">Create Account</button>
+            <div [@regDown]="anime?'down':'up'" class="rego">
+              <app-register></app-register>
+            </div>
           </div>
         </div>
       </div>
-
       <div class="row mt-2">
         <div class="col text-center">
           <div class="display-4">Find your Mate</div>
         </div>
       </div>
+
       <div class="row">
         <div class="text-center flex-column col-sm">
           <img src="../assets/img/pic1.jpg" class="img-fluid rounded shadow shadow-cus rounded-circle" />
@@ -47,15 +52,14 @@
           </p>
         </div>
       </div>
-
       <div class="row font-montserrat">
         <div class="col">
           <ul class="list-group shadow rounded h5">
             <li class="list-group-item d-flex justify-content-between align-items-center">
               1) Start free fun chat with random people.
-             <span class="material-icons-outlined">
+              <span class="material-icons-outlined">
                 assignment_returned
-                </span>
+              </span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
               2) If it clicks (^-^) Express mutual concent to verify email
@@ -77,7 +81,7 @@
     <div class="col-lg-6">
       <div class="row">
         <div class="col text-center">
-         <h1>Chat-n-you is a Free Chat</h1>
+          <h1>Chat-n-you is a Free Chat</h1>
         </div>
       </div>
       <div class="row">
