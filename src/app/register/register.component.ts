@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { userModel } from "../models/user";
-import { Service } from "../api/service";
+
+import { ApiService } from "../services/ApiService";
 import { Observable } from "rxjs";
 import { Router } from "@angular/router";
-import { labelAnimation } from "../animations/animations";
+import { LabelAnimation } from "../animations/animations";
 import {
   trigger,
   transition,
@@ -12,16 +12,17 @@ import {
   style,
   animate,
 } from "@angular/animations";
+import { userModel } from "../models/user";
 
 //top: "-4px", right: "12px", opacity: 0.5
 @Component({
   selector: "app-register",
-  animations: [labelAnimation.animeTrigger],
+  animations: [LabelAnimation.animeTrigger],
   templateUrl: "./register.component.html",
   styleUrls: ["./register.component.css"],
 })
 export class RegisterComponent implements OnInit {
-  constructor(private service: Service, private _router: Router) {}
+  constructor(private service: ApiService, private _router: Router) {}
   public model = new userModel("", "", "", "", 0, 0, 0);
   countries: any[];
   cities: any[];

@@ -12,9 +12,12 @@ $h1-color:hsl(0, 0%, 15%);
 $h2-color:hsl(0, 0%, 6%);
 $body-bg:hsl(0, 0%, 97%);
 $transition-1:background-color 0.5s, transform 2s;
-
+$fa-font-path:"../webfonts";
 
 
 $tertiary: #fff;
 $font-header: "Lato", sans-serif;
 $font-body: "Fruktur", cursive;
+
+//borders
+$bdr-rounded-25: 25px;

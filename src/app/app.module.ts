@@ -14,7 +14,9 @@ import { NavigationComponent } from "./navigation/navigation.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AuthInterceptor } from "./auth/auth.interceptor";
 import { NotifyComponent } from './notify/notify.component';
-
+import { BaseComponent } from './base/base.component';
+import { LoginReactiveComponent } from './login-reactive/login-reactive.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // @Directive()
 @NgModule({
@@ -26,9 +28,12 @@ import { NotifyComponent } from './notify/notify.component';
     HomeComponent,
     NavigationComponent,
     NotifyComponent,
+    BaseComponent,
+    LoginReactiveComponent,
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,

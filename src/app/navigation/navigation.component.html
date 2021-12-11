@@ -11,7 +11,8 @@
             <i class="fas fa-1x pad-ico fa-angle-double-down"></i></span>
         </button>
         <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-          <app-login (isLoggedEmitter)="showLogin($event)"></app-login>
+          <!-- <app-login (isLoggedEmitter)="showLogin($event)"></app-login> -->
+          <app-login-reactive></app-login-reactive>
         </div>
       </div>
       <!-- <button (click)="logOut()">LogOut</button>

@@ -10,7 +10,7 @@ import {
   state,
 } from "@angular/animations";
 
-export const labelAnimation = {
+export const LabelAnimation = {
   animeTrigger: trigger("animeTrigger", [
     state(
       "over",

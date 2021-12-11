@@ -1,7 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from "@angular/core";
 import { loginModel } from "../models/login";
 import { Router } from "@angular/router";
-import { Service } from "../api/service";
+import { ApiService } from "../services/ApiService";
+import { generalService } from "../services/generalService";
 import {
   trigger,
   transition,
@@ -10,6 +11,7 @@ import {
   style,
   animate,
 } from "@angular/animations";
+import { BaseComponent } from "../base/base.component";
 
 @Component({
   selector: "app-login",
@@ -35,22 +37,28 @@ import {
     ]),
   ],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent extends BaseComponent implements OnInit {
   @Output() isLoggedEmitter = new EventEmitter();
-  public model = new loginModel("", "", false);
+  public model = new loginModel("","",false);
+  //model:loginModel;
+  //model:any;
   animateUserName = false;
   animatePassword = false;
   isLogged = false;
 
-  constructor(private service: Service, private _router: Router) {}
-
+  constructor(private apiService: ApiService, private generalService:generalService, private _router: Router) {
+    super ()
+  }
+  
   login() {
-    this.service.postMethodWithReturn(this.model,'User','Login').subscribe((data: any) => {
+    this.apiService.postMethodWithReturn(this.model,'User','Login').subscribe((data: any) => {
       if (data.logged) {
         this._router.navigate(["./secure"]);
         this.isLogged = true;
         localStorage.setItem("token", data.token);
         this.isLoggedEmitter.emit(this.isLogged);
+        this.generalService.messageToNotification="Thanks you, you have successfully logged in";
+       
       }
       if (!data.logged) {
         this.isLogged = false;
@@ -59,12 +67,16 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  message:string = "Test";
   animateUserNameFn() {
     this.animateUserName = true;
   }
+  testFn(){this.generalService.messageToNotification="Test from test to notification";}
 
   animatePasswordFn() {
     this.animatePassword = true;
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.generalService.messageToNotification="Test msdessage to notification";
+  }
 }

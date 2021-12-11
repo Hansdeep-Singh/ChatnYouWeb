@@ -9,7 +9,7 @@ import { appConsts } from "src/app/constants/const";
 @Injectable({
   providedIn: "root",
 })
-export class Service {
+export class ApiService {
   readonly ROOT_URL = environment.ROOT_URL;
   handleError;
   apiPath: string;
@@ -43,14 +43,11 @@ export class Service {
       .get(this.ROOT_URL + this.apiPath + Id)
       .pipe(catchError(this.handleError));
   }
-
+// Need more work on this, it need to check with the server that wheather the current token is the valid one or not. 
   isloggedin(): boolean {
     return !!localStorage.getItem("token");
   }
 
-  test() {
-    alert();
-  }
 
   getRetArray(): Observable<any[]> {
     return this.http

@@ -43,7 +43,10 @@ button:hover {
   background-color: $secondary-200;
 }
 
-.bg-second{background-color: $secondary-100 !important; opacity: 1 !important;}
+.bg-second {
+  background-color: $secondary-100 !important;
+  opacity: 1 !important;
+}
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
@@ -175,7 +178,9 @@ button:hover {
   box-shadow: inset 0 0 10px #000000;
 }
 
-.img-anime{width:80vh;}
+.img-anime {
+  width: 80vh;
+}
 
 .themsg span {
   font-size: 14px;
@@ -327,9 +332,8 @@ input:focus {
   z-index: 199;
   height: 0px;
   opacity: 1;
-  width:80%;
-  margin:auto;
-  
+  width: 80%;
+  margin: auto;
 }
 
 .navbar-nav li {
@@ -353,21 +357,33 @@ input:focus {
   }
 }
 //  spacers
-.spacer-1{height:300px; width:100%;}
-
-
-#registerForm input + div{
-  background-color:$error-bg-color;
-color: $text-light;
-border-radius: 25px;
+.spacer-1 {
+  height: 300px;
+  width: 100%;
 }
 
-.notify{
+#registerForm input + div {
   background-color: $error-bg-color;
   color: $text-light;
-  margin:auto;
-  z-index: 100;
-  left:0;
-  right:0;
-  position: absolute;
+  border-radius: 25px;
+}
+#notify {
+  .container {
+    color: $text-light;
+    z-index: 100;
+    position: absolute;
+    right: 0;
+    left:0;
+    background: hsl(0 0% 0% / 0.75);
+    border-radius: 50px;
+  }
+  @supports (backdrop-filter: blur(1rem)) {
+    .container {
+      background: hsl(20% 90% 50% / 0.7);
+      backdrop-filter: blur(0.1rem);
+    }
+  }
+  .container div.row{display: flex; align-items: center; justify-content: center;}
+  .container i{margin:7px 0 7px 0;}
+
 }
