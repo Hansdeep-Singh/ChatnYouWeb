@@ -1,4 +1,3 @@
-
 <form #loginForm="ngForm" (ngSubmit)="login()">
   <ul class="navbar-nav d-flex align-items-center">
     <li class="valmess"></li>
@@ -8,7 +7,6 @@
         <input (focus)="animateUserNameFn()" (mouseover)="animateUserNameFn()" name="userName" type="text" id="userName"
           [ngModel]="model.userName" class="form-control textinput" />
       </div>
-      <!-- <span asp-validation-for="Login.Email" class="valmess"></span> -->
     </li>
     <li class="position-relative mar-sm">
       <div class="txtbox-wrap position-relative">
@@ -21,7 +19,8 @@
 
     <li>
       <div class="form-check form-switch">
-        <input class="form-check-input bg-second" [ngModel]="model.remember" name="Remember" id="remember" type="checkbox" id="flexSwitchCheckChecked" checked>
+        <input class="form-check-input bg-second" [ngModel]="model.remember" name="Remember" id="remember"
+          type="checkbox" id="flexSwitchCheckChecked" checked>
         <label class="form-check-label text-light" for="flexSwitchCheckChecked">Remember Me</label>
       </div>
     </li>

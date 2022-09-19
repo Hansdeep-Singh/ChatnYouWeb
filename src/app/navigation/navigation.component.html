@@ -1,9 +1,8 @@
 <div *ngIf="!logged">
-
   <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm nav-bg border-bottom box-shadow">
       <div class="container">
-        <a class="navbar-brand" [routerLink]="['/']"> Chat-n-You</a>
+        <a class="navbar-brand" [routerLink]="['/']"><b> Chat-n-You</b></a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,13 +10,9 @@
             <i class="fas fa-1x pad-ico fa-angle-double-down"></i></span>
         </button>
         <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-          <!-- <app-login (isLoggedEmitter)="showLogin($event)"></app-login> -->
           <app-login-reactive></app-login-reactive>
         </div>
       </div>
-      <!-- <button (click)="logOut()">LogOut</button>
-      <button (click)="test()">Test</button>
-      <button (click)="testAuthorise()">Test Authorise</button> -->
     </nav>
   </header>
 </div>

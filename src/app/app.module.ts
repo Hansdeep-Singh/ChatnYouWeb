@@ -6,7 +6,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { RegisterComponent } from "./register/register.component";
 import { LoginComponent } from "./login/login.component";
-import { AuthGuard } from "./auth.guard";
+
 import { SecureComponent } from "./secure/secure.component";
 import { RouterModule, CanActivate } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
@@ -17,6 +17,7 @@ import { NotifyComponent } from './notify/notify.component';
 import { BaseComponent } from './base/base.component';
 import { LoginReactiveComponent } from './login-reactive/login-reactive.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from "./auth/auth.guard";
 
 // @Directive()
 @NgModule({
@@ -39,10 +40,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-    { path: "", component: HomeComponent, pathMatch: "full" },
-    { path: "secure", component: SecureComponent },
-    { path: "login", component: LoginComponent },
-], { relativeLinkResolution: 'legacy' }),
+      { path: "", component: HomeComponent, pathMatch: "full" },
+      { path: "secure", component: SecureComponent },
+      { path: "login", component: LoginComponent },
+    ], { relativeLinkResolution: 'legacy' }),
   ],
 
   providers: [
@@ -56,5 +57,5 @@ import { ReactiveFormsModule } from '@angular/forms';
   bootstrap: [AppComponent],
 })
 export class AppModule implements OnInit {
-  ngOnInit() {}
+  ngOnInit() { }
 }

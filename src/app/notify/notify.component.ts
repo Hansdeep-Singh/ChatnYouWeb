@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { generalService } from '../services/generalService';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { interval, Subscription } from 'rxjs';
+import { NotifyService } from '../services/notify.service';
+
 
 
 @Component({
@@ -8,15 +10,50 @@ import { generalService } from '../services/generalService';
   styleUrls: ['./notify.component.css']
 })
 export class NotifyComponent implements OnInit {
-  constructor(private service:generalService) { }
-  messageBoxClass:string;
- 
+  @Output() close: EventEmitter<boolean> = new EventEmitter();
+  constructor(private notifyService: NotifyService) { }
+  message: string | undefined;
+  subscription: Subscription | undefined;
+  counter: number = 5;
+  status: boolean | undefined;
+
   ngOnInit(): void {
-    this.messageBoxClass = 'fas fa-check-circle fa-5x';
+    this.notifyService.currentNotifyMessage.subscribe((message) => {
+      if (message && !message?.success) {
+        this.status = message.success;
+        this.message = message.notifyMessage;
+        this.subscription = interval(1000).subscribe(() => {
+          this.counter--;
+          if (this.counter === 0) {
+            this.close.emit(false);
+            if (this.subscription) this.subscription?.unsubscribe();
+          }
+        });
+      }
+
+      else if (message && message?.success) {
+        this.status = message?.success;
+        this.message = message.notifymessage;
+        this.subscription = interval(1000).subscribe(() => {
+          this.counter--;
+          if (this.counter === 0) {
+            this.close.emit(false);
+            if (this.subscription) this.subscription?.unsubscribe();
+          }
+        });
+      }
+
+    });
+
   }
 
-  get message()
-  {
-    return this.service.messageToNotification;
+  ngOnDestroy() {
+    if (this.subscription) this.subscription?.unsubscribe();
   }
+
+  closeNotify() {
+    this.close.emit(false);
+  }
+
+
 }

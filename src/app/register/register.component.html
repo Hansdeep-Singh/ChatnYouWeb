@@ -14,7 +14,7 @@
             [(ngModel)]="model.emailAddress" name="emailAddess" type="text" id="emailAddress" class="form-control"
             #emailAddress="ngModel" />
           <div *ngIf="emailAddress.invalid && (emailAddress.dirty || emailAddress.touched)">
-            <div *ngIf="isEmailExist">Email Exists</div>
+            <div>Email Exists</div>
             <div *ngIf="emailAddress.errors.required">
               Email Address is required
             </div>
@@ -32,9 +32,8 @@
         <div class="txtbox-wrap position-relative">
           <div [@animeTrigger]="animateUserName?'over':'left'" class="position-absolute inputlbl">Chat user name</div>
           <input (focus)="animateUserNameFn()" (mouseover)="animateUserNameFn()" required minlength="4"
-            [(ngModel)]="model.userName" name="userName" (blur)="isUsernameRegistered()" type=" text"
-            class="form-control" #userName="ngModel" />
-          <div *ngIf="isUserExist">User Exists</div>
+            [(ngModel)]="model.userName" name="userName" type=" text" class="form-control" #userName="ngModel" />
+          <div>User Exists</div>
           <div *ngIf="userName.invalid && (userName.dirty || userName.touched)">
 
             <div *ngIf="userName.errors.required">
@@ -111,9 +110,9 @@
           <div [@animeTrigger]="animateCountry?'over':'left'" class="position-absolute inputlbl">Country</div>
 
           <select (focus)="animateCountryFn()" (mouseover)="animateCountryFn()" [(ngModel)]="model.countryId"
-            class="form-control" (change)="selected()" name="countryId" id="countryId">
-            <option *ngFor="let country of countries" [ngValue]="country.countryId">
-              {{country.countryName}}</option>
+            class="form-control" name="countryId" id="countryId">
+            <option>
+            </option>
           </select>
           <!-- <input [(ngModel)]="model.country" name="country" type="text" class="form-control" /> -->
         </div>
@@ -123,8 +122,8 @@
           <div [@animeTrigger]="animateCity?'over':'left'" class="position-absolute inputlbl">City</div>
           <select (focus)="animateCityFn()" (mouseover)="animateCityFn()" [(ngModel)]="model.cityId"
             class="form-control" name="cityId" id="cityId">
-            <option selected *ngFor="let city of cities" [ngValue]="city.cityId">
-              {{city.cityName}}</option>
+            <option>
+            </option>
           </select>
         </div>
       </div>
@@ -132,7 +131,7 @@
 
     <div class="row mt-2">
       <div class="col text-center">
-        <input type="submit" [disabled]="regForm.invalid || isUserExist" value="Start Chat" name="submit" />
+        <input type="submit" value="Start Chat" name="submit" />
       </div>
     </div>
   </div>
