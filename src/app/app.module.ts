@@ -5,7 +5,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { RegisterComponent } from "./register/register.component";
-import { LoginComponent } from "./login/login.component";
 
 import { SecureComponent } from "./secure/secure.component";
 import { RouterModule, CanActivate } from "@angular/router";
@@ -24,7 +23,6 @@ import { AuthGuard } from "./auth/auth.guard";
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent,
     SecureComponent,
     HomeComponent,
     NavigationComponent,
@@ -42,7 +40,6 @@ import { AuthGuard } from "./auth/auth.guard";
     RouterModule.forRoot([
       { path: "", component: HomeComponent, pathMatch: "full" },
       { path: "secure", component: SecureComponent },
-      { path: "login", component: LoginComponent },
     ], { relativeLinkResolution: 'legacy' }),
   ],
 

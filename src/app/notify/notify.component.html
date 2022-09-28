@@ -2,26 +2,40 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div *ngIf="!status" class="notify-box-fail">
-                    <div>{{message}}</div>
+                <div *ngIf="!status" class="notify-box fail">
+                    <div class="message">
+                        <h4><span>Notification</span> <i class="material-symbols-outlined">
+                                bolt
+                            </i> </h4>
+                        <p>{{message}}
+                        </p>
+                    </div>
                     <div class="counter">
-                        <div class="mr-4">Closing in ({{counter}})</div>
-                        <a class="d-flex" (click)="closeNotify()">
-                            <span class="material-icons">
-                                (close)
-                            </span>
+                        <a (click)="closeNotify()">
+                            <i class="material-symbols-outlined">
+                                close
+                            </i>
                         </a>
+                        <div>Closing in ({{counter}})
+                        </div>
                     </div>
                 </div>
-                <div *ngIf="status" class="notify-box-pass">
-                    <div>{{message}}</div>
+                <div *ngIf="status" class="notify-box pass">
+                    <div class="message">
+                        <h4><span>Notification</span> <i class="material-symbols-outlined">
+                                bolt
+                            </i> </h4>
+                        <p>{{message}}
+                        </p>
+                    </div>
                     <div class="counter">
-                        <div class="mr-4">Closing in ({{counter}})</div>
-                        <a class="d-flex" (click)="closeNotify()">
-                            <span class="material-icons">
-                                (close)
-                            </span>
+                        <a (click)="closeNotify()">
+                            <i class="material-symbols-outlined">
+                                close
+                            </i>
                         </a>
+                        <div>Closing in ({{counter}})
+                        </div>
                     </div>
                 </div>
             </div>

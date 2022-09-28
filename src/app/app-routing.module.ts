@@ -3,7 +3,6 @@ import { Routes, RouterModule } from "@angular/router";
 import { AuthGuard } from "./auth/auth.guard";
 
 import { HomeComponent } from "./home/home.component";
-import { LoginComponent } from "./login/login.component";
 import { NavigationComponent } from "./navigation/navigation.component";
 import { SecureComponent } from "./secure/secure.component";
 

@@ -1,11 +1,4 @@
-<!-- <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
-    <input id="userName" type="text" formControlName="userName">
-    <input id="password" type="password" formControlName="password">
-    <input id="rememberMe" type="checkbox" formControlName="rememberMe">
-    <button type="submit" [disabled]="!loginForm.valid">Submit</button>
-</form> -->
-
-<form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+<form [formGroup]="loginForm" (ngSubmit)="submit(loginForm.value)">
     <ul class="navbar-nav d-flex align-items-center">
         <li class="valmess"></li>
         <li> <a>Forgot pasword?</a></li>

@@ -20,8 +20,8 @@ export class NotifyComponent implements OnInit {
   ngOnInit(): void {
     this.notifyService.currentNotifyMessage.subscribe((message) => {
       if (message && !message?.success) {
-        this.status = message.success;
-        this.message = message.notifyMessage;
+        this.status = message?.success;
+        this.message = message?.notifyMessage;
         this.subscription = interval(1000).subscribe(() => {
           this.counter--;
           if (this.counter === 0) {

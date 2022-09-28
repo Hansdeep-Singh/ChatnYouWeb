@@ -1,137 +1,151 @@
-<form id="registerForm" #regForm="ngForm" (ngSubmit)="regUser()">
+<form [formGroup]="registerForm" id="registerForm" (ngSubmit)="submit(registerForm.value)">
   <div class="container mt-3 bg-2 pt-2 pb-2 position-relative shadow rounded">
     <div class="row">
       <div class="col">
         <h2 class="head-3">Create your account and start chatting</h2>
       </div>
     </div>
+    <!-- Email Address  -->
     <div class="row mt-2">
       <div class="col">
-
         <div class="txtbox-wrap position-relative">
-          <div [@animeTrigger]="animateEmail?'over':'left'" class="position-absolute inputlbl">Email Address</div>
-          <input (focus)="animateEmailFn()" (mouseover)="animateEmailFn()" required email
-            [(ngModel)]="model.emailAddress" name="emailAddess" type="text" id="emailAddress" class="form-control"
-            #emailAddress="ngModel" />
-          <div *ngIf="emailAddress.invalid && (emailAddress.dirty || emailAddress.touched)">
-            <div>Email Exists</div>
-            <div *ngIf="emailAddress.errors.required">
-              Email Address is required
-            </div>
-            <div *ngIf="emailAddress.errors.email">
-              Please enter your valid email address
-            </div>
+          <div [@animeTrigger]="animateEmail?'over':'left'" class="position-absolute inputlbl">
+
+            <div class="error"
+              *ngIf="emailAddress.invalid && (emailAddress.dirty || emailAddress.touched) ; else emailLabel">
+              Email address is required.</div>
+            <ng-template #emailLabel>Email Address</ng-template>
+
           </div>
+          <input id="emailAddress" type="text" name="emailAddress" formControlName="emailAddress" required
+            (focus)="this.animateEmail=true" (mouseover)="this.animateEmail=true" class="form-control">
+
+        </div>
+      </div>
+    </div>
+    <!-- User Name -->
+    <div class="row mt-2">
+      <div class="col">
+        <div class="txtbox-wrap position-relative">
+          <div [@animeTrigger]="animateUserName?'over':'left'" class="position-absolute inputlbl">
+            <div class="error" *ngIf="userName.invalid && (userName.dirty || userName.touched) ; else userLabel">
+              User Name is required.</div>
+            <ng-template #userLabel>User Name</ng-template>
+          </div>
+
+
+          <input id="userName" type="text" name="userName" formControlName="userName" required
+            (focus)="this.animateUserName=true" (mouseover)="this.animateUserName=true" class="form-control">
         </div>
       </div>
     </div>
 
-
+    <!-- Password -->
     <div class="row mt-2">
       <div class="col">
         <div class="txtbox-wrap position-relative">
-          <div [@animeTrigger]="animateUserName?'over':'left'" class="position-absolute inputlbl">Chat user name</div>
-          <input (focus)="animateUserNameFn()" (mouseover)="animateUserNameFn()" required minlength="4"
-            [(ngModel)]="model.userName" name="userName" type=" text" class="form-control" #userName="ngModel" />
-          <div>User Exists</div>
-          <div *ngIf="userName.invalid && (userName.dirty || userName.touched)">
-
-            <div *ngIf="userName.errors.required">
-              UserName is required.
-            </div>
-            <div *ngIf="userName.errors.minlength">
-              Name must be at least 4 characters long.
-            </div>
-
-
+          <div [@animeTrigger]="animatePassword?'over':'left'" class="position-absolute inputlbl">
+            <div class="error" *ngIf="password.invalid && (password.dirty || password.touched) ; else passwordLabel">
+              Password is required.</div>
+            <ng-template #passwordLabel>Password</ng-template>
           </div>
+
+
+          <input id="password" type="text" name="password" formControlName="password" required
+            (focus)="this.animatePassword=true" (mouseover)="this.animatePassword=true" class="form-control">
         </div>
       </div>
     </div>
-    <div class="row mt-2">
-      <div class="col">
-        <div class="txtbox-wrap position-relative">
-          <div [@animeTrigger]="animatePassword?'over':'left'" class="position-absolute inputlbl">Password</div>
-          <input (focus)="animatePasswordFn()" (mouseover)="animatePasswordFn()" required minlength="6"
-            [(ngModel)]="model.passWord" name="passWord" type="password" id="passWord" class="form-control"
-            #passWord="ngModel" />
-          <div *ngIf="passWord.invalid && (passWord.dirty || passWord.touched)">
-            <div *ngIf="passWord.errors.required">
-              Password is required
-            </div>
-            <div *ngIf="passWord.errors.minlength">
-              Password must be at least 6 characters long.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- <div class="row mt-2">
-      <div class="col">
-        <div class="txtbox-wrap position-relative">
-          <div class="position-absolute inputlbl">Confirm Password</div>
-          <input [(ngModel)] = "model.passWord" name = "password" type ="text"/>
-        </div>
-      </div>
-    </div> -->
 
     <div class="row mt-2">
+      <!-- Gender -->
       <div class="col">
+
         <div class="txtbox-wrap position-relative">
-          <div [@animeTrigger]="animateGender?'over':'left'" class="position-absolute inputlbl">Gender</div>
-          <select (focus)="animateGenderFn()" (mouseover)="animateGenderFn()" [(ngModel)]="model.gender"
-            class="form-control" name="gender" id="gender">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
+          <div [@animeTrigger]="animateGender?'over':'left'" class="position-absolute inputlbl">
+            <div class="error" *ngIf="gender.invalid && (gender.dirty || gender.touched) ; else GenderLabel">
+              Gender is required.</div>
+            <ng-template #GenderLabel>Gender</ng-template>
+          </div>
+
+          <select id="gender" class="form-control" formControlName="gender" (focus)="this.animateGender=true"
+            (mouseover)="this.animateGender=true" required>
+            <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
           </select>
+
+
         </div>
       </div>
+      <!-- Age -->
       <div class="col">
         <div class="txtbox-wrap position-relative">
-          <div [@animeTrigger]="animateAge?'over':'left'" class="position-absolute inputlbl">Age</div>
-          <input (focus)="animateAgeFn()" (mouseover)="animateAgeFn()" [(ngModel)]="model.age" name="age" type="number"
-            class="form-control" #age="ngModel" />
-          <div *ngIf="age.invalid && (age.dirty || age.touched)">
-            <div *ngIf="age.errors.required">
-              Age is required
-            </div>
-            <div *ngIf="passWord.errors.minlength">
-              Age must be at least 2 characters long.
-            </div>
+          <div [@animeTrigger]="animateAge?'over':'left'" class="position-absolute inputlbl">
+            <div class="error" *ngIf="age.invalid && (age.dirty || age.touched) ; else AgeLabel">
+              Age is required.</div>
+            <ng-template #AgeLabel>Age</ng-template>
           </div>
+
+          <select id="age" class="form-control" formControlName="age" (focus)="this.animateAge=true"
+            (mouseover)="this.animateAge=true" required>
+            <option *ngFor="let age of ages" [value]="age">{{age}}</option>
+          </select>
+
+
         </div>
+
       </div>
     </div>
+
 
     <div class="row mt-2">
+      <!-- Country -->
       <div class="col">
-        <div class="txtbox-wrap position-relative">
-          <div [@animeTrigger]="animateCountry?'over':'left'" class="position-absolute inputlbl">Country</div>
 
-          <select (focus)="animateCountryFn()" (mouseover)="animateCountryFn()" [(ngModel)]="model.countryId"
-            class="form-control" name="countryId" id="countryId">
-            <option>
-            </option>
+        <div class="txtbox-wrap position-relative">
+          <div [@animeTrigger]="animateCountry?'over':'left'" class="position-absolute inputlbl">
+            <div class="error" *ngIf="country.invalid && (country.dirty || country.touched) ; else countryLabel">
+              Country is required.</div>
+            <ng-template #countryLabel>Country</ng-template>
+          </div>
+
+          <select id="Country" class="form-control" formControlName="country" (focus)="this.animateCountry=true"
+            (mouseover)="this.animateCountry=true" required>
+            <option *ngFor="let country of countries" [value]="country">{{country}}</option>
           </select>
-          <!-- <input [(ngModel)]="model.country" name="country" type="text" class="form-control" /> -->
+
+
         </div>
       </div>
+      <!-- City -->
       <div class="col">
         <div class="txtbox-wrap position-relative">
-          <div [@animeTrigger]="animateCity?'over':'left'" class="position-absolute inputlbl">City</div>
-          <select (focus)="animateCityFn()" (mouseover)="animateCityFn()" [(ngModel)]="model.cityId"
-            class="form-control" name="cityId" id="cityId">
-            <option>
-            </option>
+          <div [@animeTrigger]="animateCity?'over':'left'" class="position-absolute inputlbl">
+            <div class="error" *ngIf="city.invalid && (city.dirty || city.touched) ; else cityLabel">
+              City is required.</div>
+            <ng-template #cityLabel>City</ng-template>
+          </div>
+
+          <select id="City" class="form-control" formControlName="city" (focus)="this.animateCity=true"
+            (mouseover)="this.animateCity=true" required>
+            <option *ngFor="let city of cities" [value]="city">{{city}}</option>
           </select>
+
+
         </div>
+
       </div>
     </div>
-
     <div class="row mt-2">
       <div class="col text-center">
-        <input type="submit" value="Start Chat" name="submit" />
+        <div class="valid">
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+
+        <!-- <div class="valid" (mouseover)="validForm()">
+          <button type="submit" class="btn btn-default" 
+          [disabled]="registerForm.invalid"
+          >Submit</button>
+        </div> -->
       </div>
     </div>
   </div>

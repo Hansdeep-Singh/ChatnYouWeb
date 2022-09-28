@@ -1,4 +1,5 @@
 @import "./assets/scss/variables.scss";
+@import "./assets/scss/animations.scss";
 
 
 
@@ -34,6 +35,7 @@ input[type=checkbox]:checked {
 a {
   color: #000000;
   font-family: $font-header;
+  cursor: pointer;
 }
 
 h1 {
@@ -56,22 +58,11 @@ h5 {
   font-size: clamp(1.2rem, 1.7vw, 1.9rem)
 }
 
-input[type="submit"] {
-  background-color: $secondary-100  !important;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 7px 15px;
-  transition: $transition-1;
-}
 
-input[type="submit"]:hover {
-  background-color: $secondary-200  !important;
-}
 
 
 button {
-  background-color: $secondary-100;
+  background-color: $secondary-100  !important;
   color: #fff;
   border: none !important;
   border-radius: 7px !important;
@@ -90,6 +81,19 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+.error {
+  background-color: $error-100;
+  color: $white;
+  border-radius: 11px;
+  padding: 0 3px;
+  animation: shake 0.5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 5;
+}
+
+.valid {
+  display: inline-block;
+}
 
 .bg-second {
   background-color: $secondary-100  !important;
@@ -443,30 +447,49 @@ input:focus {
 
 #notify {
   .container {
-    color: $text-light;
-    z-index: 100;
+    background: hsla(0, 0%, 72%, 0.95);
+    border: 1px solid $primary-100;
+    border-radius: 3px;
     position: absolute;
-    right: 0;
-    left: 0;
-    background: hsl(0 0% 0% / 0.75);
-    border-radius: 50px;
+    z-index: 1000;
+    top: 300px;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   @supports (backdrop-filter: blur(1rem)) {
     .container {
-      background: hsl(20% 90% 50% / 0.7);
       backdrop-filter: blur(0.1rem);
     }
   }
 
-  .container div.row {
+  .notify-box {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .message {
+      display: flex;
+      flex-direction: column;
+
+      h4 {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .counter {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
   }
 
-  .container i {
-    margin: 7px 0 7px 0;
+
+  i {
+    margin: 7px 0;
+    color: $primary-100;
   }
 
 }
