@@ -108,9 +108,13 @@
             <ng-template #countryLabel>Country</ng-template>
           </div>
 
-          <select id="Country" class="form-control" formControlName="country" (focus)="this.animateCountry=true"
-            (mouseover)="this.animateCountry=true" required>
-            <option *ngFor="let country of countries" [value]="country">{{country}}</option>
+
+
+
+
+          <select (change)="onChange($event.target.value)" id="Country" class="form-control" formControlName="country"
+            (focus)="this.animateCountry=true" (mouseover)="this.animateCountry=true" required>
+            <option *ngFor="let country of countries" [value]="country?.countryId">{{country?.countryName}}</option>
           </select>
 
 
@@ -127,7 +131,7 @@
 
           <select id="City" class="form-control" formControlName="city" (focus)="this.animateCity=true"
             (mouseover)="this.animateCity=true" required>
-            <option *ngFor="let city of cities" [value]="city">{{city}}</option>
+            <option *ngFor="let city of cities" [value]="city?.cityId">{{city?.cityName}}</option>
           </select>
 
 
@@ -137,15 +141,13 @@
     </div>
     <div class="row mt-2">
       <div class="col text-center">
-        <div class="valid">
-          <button type="submit" class="btn btn-default">Submit</button>
-        </div>
-
-        <!-- <div class="valid" (mouseover)="validForm()">
-          <button type="submit" class="btn btn-default" 
-          [disabled]="registerForm.invalid"
-          >Submit</button>
+        <!-- <div class="valid">
+          <button hans type="submit" class="btn btn-default">Submit</button>
         </div> -->
+
+        <div class="valid" (mouseover)="validForm()">
+          <button type="submit" class="btn btn-default" [disabled]="registerForm.invalid">Submit</button>
+        </div>
       </div>
     </div>
   </div>

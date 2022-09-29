@@ -33,7 +33,7 @@ export class NotifyComponent implements OnInit {
 
       else if (message && message?.success) {
         this.status = message?.success;
-        this.message = message.notifymessage;
+        this.message = message?.notifyMessage;
         this.subscription = interval(1000).subscribe(() => {
           this.counter--;
           if (this.counter === 0) {

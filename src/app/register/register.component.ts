@@ -10,6 +10,9 @@ import { NotifyService } from "../services/notify.service";
 import { CookieService } from "../services/cookie.service";
 import { AuthService } from "../auth/authService";
 import { CallsService } from "../services/calls.service";
+import { UtilitiesService } from "../services/utilities.service";
+import { INotifyConfig } from "../interface/config";
+
 
 @Component({
   selector: "app-register",
@@ -19,8 +22,8 @@ import { CallsService } from "../services/calls.service";
 })
 export class RegisterComponent implements OnInit {
   constructor(private callsService: CallsService, private router: Router, private cookieService: CookieService,
-    private engineService: NotifyService,
-
+    private notifyService: NotifyService,
+    private utilityService: UtilitiesService,
     private authService: AuthService) { }
 
 
@@ -28,9 +31,15 @@ export class RegisterComponent implements OnInit {
 
   genders = ['Male', 'Female', 'Other'];
   ages = [];
-  countries = ["India", "France"];
-  cities = ["India", "France"];
+  countries: any[];
+  cities: any[];
 
+  getCountries() {
+    this.callsService.getNoArg("Location", "GetCountries").subscribe((data) => {
+      this.countries = data;
+    });
+
+  }
 
   animateEmail = false;
   animateUserName = false;
@@ -39,32 +48,30 @@ export class RegisterComponent implements OnInit {
   animateCity = false;
   animatePassword = false;
   animateGender = false;
+  message: INotifyConfig | undefined;
+
+  // submit(model: any) {
+  //   this.utilityService.Notify(false, 'data?.notify?.message');
+  // }
+
 
   submit(model: any) {
-    let mod = '{ "emailAddress": "hansdeep.singh7@hotmail.com", "userName": "hans", "password": "Hh@4294967296", "gender": "Female", "age": "36", "country": "India", "city": "France" }';
-    // console.log(JSON.parse(mod));
-    let obj = JSON.parse(mod);
-    this.callsService.post("User", "Register", obj).subscribe((data) => {
-      if (data.success) {
-        const payload = JSON.parse(data?.payload);
-        this.cookieService.setCookieStringify("user", payload?.User, 1);
-        this.cookieService.setCookie("refreshToken", payload?.Tokens?.RefreshToken, 1)
-        this.authService.accessToken = payload?.Tokens?.AccessToken;
+    //model = JSON.parse('{"emailAddress":"test90@test.com","userName":"test","password":"Hh@4294967296","gender":"Male","age":"33","country":"7","city":"1266"}');
+    this.utilityService.Register(model)
+      .then((payload) => {
+        this.utilityService.SaveUserAndTokens(payload);
+      })
+      .then(() => {
+        this.utilityService.RegisterUserInfo(model)
+          .then((data: any) => {
 
-        // this.router.navigate(['./secure']);
-
-        Promise.resolve()
-          .then(() => {
-            this.callsService.post("UserInfo", "Register", obj).subscribe((data) => {
-              console.log(data);
-            })
-          });
-      }
-    });
+            this.utilityService.Notify(data?.notify?.success, data?.notify?.message)
+          })
+      })
   }
 
   validForm() {
-    this.registerForm.invalid ? alert("invalid") : "";
+    this.registerForm.invalid ? this.utilityService.Notify(false, 'Please complete the form') : "";
   }
 
   get emailAddress() { return this.registerForm.get('emailAddress'); }
@@ -75,7 +82,14 @@ export class RegisterComponent implements OnInit {
   get country() { return this.registerForm.get('country'); }
   get city() { return this.registerForm.get('city'); }
 
+  onChange(countryId) {
+    this.callsService.get("Location", "GetCities", countryId).subscribe((data) => {
+      this.cities = data;
+    })
+  }
+
   ngOnInit() {
+    this.getCountries();
     for (let i = 18; i < 100; i++) {
       this.ages.push(i);
     }

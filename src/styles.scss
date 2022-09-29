@@ -447,26 +447,26 @@ input:focus {
 
 #notify {
   .container {
-    background: hsla(0, 0%, 72%, 0.95);
-    border: 1px solid $primary-100;
-    border-radius: 3px;
     position: absolute;
     z-index: 1000;
-    top: 300px;
+    top: 100px;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 
-  @supports (backdrop-filter: blur(1rem)) {
-    .container {
-      backdrop-filter: blur(0.1rem);
-    }
-  }
+
+
 
   .notify-box {
+    border-radius: 7px;
+    padding: 8px 8px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    color: #fff;
+
+
+
 
     .message {
       display: flex;
@@ -476,6 +476,11 @@ input:focus {
         display: flex;
         align-items: center;
       }
+
+      i {
+        margin: 7px 0;
+        color: $secondary-100;
+      }
     }
 
     .counter {
@@ -483,13 +488,31 @@ input:focus {
       flex-direction: column;
       align-items: flex-end;
       justify-content: space-between;
+
+      i {
+        margin: 7px 0;
+        color: $white;
+      }
     }
   }
 
-
-  i {
-    margin: 7px 0;
-    color: $primary-100;
+  @supports (backdrop-filter: blur(1rem)) {
+    .notify-box {
+      backdrop-filter: blur(0.1rem);
+    }
   }
+
+  .fail {
+    background-color: $error-blur-100;
+  }
+
+  .pass {
+    background-color: $primary-blur-200;
+  }
+
+
+
+
+
 
 }
