@@ -11,4 +11,5 @@ export class NotifyService {
   async changeNotifyMessage(notify: any) {
     this.notifyMessageSource.next(notify);
   }
+
 }

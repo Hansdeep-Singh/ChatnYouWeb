@@ -14,11 +14,12 @@ export class NotifyComponent implements OnInit {
   constructor(private notifyService: NotifyService) { }
   message: string | undefined;
   subscription: Subscription | undefined;
-  counter: number = 5;
+  counter: number;
   status: boolean | undefined;
 
   ngOnInit(): void {
     this.notifyService.currentNotifyMessage.subscribe((message) => {
+      this.counter = 5;
       if (message && !message?.success) {
         this.status = message?.success;
         this.message = message?.notifyMessage;
@@ -32,6 +33,7 @@ export class NotifyComponent implements OnInit {
       }
 
       else if (message && message?.success) {
+        this.counter = 5;
         this.status = message?.success;
         this.message = message?.notifyMessage;
         this.subscription = interval(1000).subscribe(() => {

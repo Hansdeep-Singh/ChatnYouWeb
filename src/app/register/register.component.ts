@@ -56,23 +56,38 @@ export class RegisterComponent implements OnInit {
 
 
   submit(model: any) {
-    //model = JSON.parse('{"emailAddress":"test90@test.com","userName":"test","password":"Hh@4294967296","gender":"Male","age":"33","country":"7","city":"1266"}');
+    model = JSON.parse('{"emailAddress":"test442@test.com","userName":"test","password":"Hh@4294967296","gender":"Male","age":"33","country":"7","city":"1266"}');
     this.utilityService.Register(model)
-      .then((payload) => {
-        this.utilityService.SaveUserAndTokens(payload);
-      })
-      .then(() => {
-        this.utilityService.RegisterUserInfo(model)
-          .then((data: any) => {
 
-            this.utilityService.Notify(data?.notify?.success, data?.notify?.message)
-          })
-      })
+      .then(
+        (onResolve: any) => {
+          this.utilityService.SaveUserAndTokens(JSON.parse(onResolve?.payload));
+          this.utilityService.Notify(onResolve?.notify?.success, onResolve?.notify?.message)
+          this.utilityService.RegisterUserInfo(model)
+            .then((data: any) => {
+              this.utilityService.Notify(data?.notify?.success, data?.notify?.message)
+            })
+        },
+        (onReject: any) => { this.utilityService.Notify(onReject?.notify?.success, onReject?.notify?.message) }
+      )
+
+
+
+
+
+    // .then((onResolve: any) => {
+    //   this.utilityService.RegisterUserInfo(model)
+    //     .then((data: any) => {
+    //       this.utilityService.Notify(data?.notify?.success, data?.notify?.message)
+    //     })
+    // }
+    // )
   }
 
   validForm() {
     this.registerForm.invalid ? this.utilityService.Notify(false, 'Please complete the form') : "";
   }
+
 
   get emailAddress() { return this.registerForm.get('emailAddress'); }
   get userName() { return this.registerForm.get('userName'); }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth/authService';
@@ -12,6 +12,7 @@ import { SessionService } from './session.service';
   providedIn: 'root'
 })
 export class UtilitiesService {
+  @Output() close: EventEmitter<boolean> = new EventEmitter();
   constructor(private callsService: CallsService,
     private sessionService: SessionService,
     private cookieService: CookieService
@@ -19,12 +20,16 @@ export class UtilitiesService {
     private authService: AuthService,
     private notifyService: NotifyService) {
   }
+
   message: INotifyConfig | undefined;
   Register(model: any) {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       this.callsService.post("User", "Register", model).subscribe((data) => {
-        if (data.success) {
-          resolve(JSON.parse(data?.payload));
+        if (data?.success) {
+          resolve(data);
+        }
+        if (!data?.success) {
+          reject(data);
         }
       })
     })
@@ -46,10 +51,8 @@ export class UtilitiesService {
     })
   }
 
-  async Notify(success: boolean, message: string) {
+  Notify(success: boolean, message: string) {
     this.message = { success: success, notifyMessage: message };
-    await this.notifyService.changeNotifyMessage(this.message);
+    this.notifyService.changeNotifyMessage(this.message);
   }
-
-
 }
