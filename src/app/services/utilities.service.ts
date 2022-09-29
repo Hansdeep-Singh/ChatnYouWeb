@@ -1,0 +1,55 @@
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from '../auth/authService';
+import { INotifyConfig } from '../interface/config';
+import { CallsService } from './calls.service';
+import { CookieService } from './cookie.service';
+import { NotifyService } from './notify.service';
+import { SessionService } from './session.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UtilitiesService {
+  constructor(private callsService: CallsService,
+    private sessionService: SessionService,
+    private cookieService: CookieService
+    , private routerService: Router,
+    private authService: AuthService,
+    private notifyService: NotifyService) {
+  }
+  message: INotifyConfig | undefined;
+  Register(model: any) {
+    return new Promise(resolve => {
+      this.callsService.post("User", "Register", model).subscribe((data) => {
+        if (data.success) {
+          resolve(JSON.parse(data?.payload));
+        }
+      })
+    })
+  }
+
+  SaveUserAndTokens(payload) {
+    this.cookieService.setCookieStringify("user", payload?.User, 1);
+    this.cookieService.setCookie("refreshToken", payload?.Tokens?.RefreshToken, 1);
+    this.authService.accessToken = payload?.Tokens?.AccessToken;
+  }
+
+  RegisterUserInfo(model) {
+    return new Promise(resolve => {
+      this.callsService.post("UserInfo", "Register", model).subscribe((data) => {
+        if (data.success) {
+          resolve(data);
+        }
+      })
+    })
+  }
+
+  async Notify(success: boolean, message: string) {
+    this.message = { success: success, notifyMessage: message };
+    await this.notifyService.changeNotifyMessage(this.message);
+  }
+
+
+}
