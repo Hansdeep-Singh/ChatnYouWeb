@@ -17,6 +17,7 @@ import { BaseComponent } from './base/base.component';
 import { LoginReactiveComponent } from './login-reactive/login-reactive.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from "./auth/auth.guard";
+import { LogoutComponent } from './logout/logout.component';
 
 // @Directive()
 @NgModule({
@@ -29,6 +30,7 @@ import { AuthGuard } from "./auth/auth.guard";
     NotifyComponent,
     BaseComponent,
     LoginReactiveComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,

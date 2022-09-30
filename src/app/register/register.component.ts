@@ -56,7 +56,7 @@ export class RegisterComponent implements OnInit {
 
 
   submit(model: any) {
-    model = JSON.parse('{"emailAddress":"test442@test.com","userName":"test","password":"Hh@4294967296","gender":"Male","age":"33","country":"7","city":"1266"}');
+    //model = JSON.parse('{"emailAddress":"test442@test.com","userName":"test","password":"Hh@4294967296","gender":"Male","age":"33","country":"7","city":"1266"}');
     this.utilityService.Register(model)
 
       .then(

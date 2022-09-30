@@ -35,7 +35,7 @@ export class LoginReactiveComponent implements OnInit {
   isLogged = false;
 
   submit(post: any) {
-    this.callsService.post("User", "Login", post)
+    this.callsService.post("User", "LoginViaUserName", post)
       .subscribe((data) => {
         console.log(data);
         const notify = data.notify;
