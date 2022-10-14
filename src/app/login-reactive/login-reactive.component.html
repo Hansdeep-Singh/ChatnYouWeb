@@ -1,35 +1,39 @@
-<form [formGroup]="loginForm" (ngSubmit)="submit(loginForm.value)">
-    <ul class="navbar-nav d-flex align-items-center">
-        <li class="valmess"></li>
-        <li> <a>Forgot pasword?</a></li>
-        <li class="position-relative">
-            <div class="txtbox-wrap position-relative">
-                <div [@animeTrigger]="animateUserName?'over':'left'" class="position-absolute inputlbl">
-                    <div *ngIf="loginForm.get('userName').touched; else label">User Name is required</div>
-                    <ng-template #label>User name</ng-template>
+<section id="login">
+    <form [formGroup]="loginForm" (ngSubmit)="submit(loginForm.value)">
+        <ul class="navbar-nav d-flex align-items-center">
+            <li class="valmess"></li>
+            <li> <a [routerLink]="['/forgot']">Forgot Password?</a></li>
+            <li class="position-relative">
+                <div class="txtbox-wrap position-relative">
+                    <div [@animeTrigger]="animateUserName?'over':'left'" class="position-absolute inputlbl">
+                        <div *ngIf="loginForm.get('userName').touched; else label">User Name is required</div>
+                        <ng-template #label>User name</ng-template>
+
+                    </div>
+                    <input id="userName" type="text" name="userName" formControlName="userName" required minlength="4"
+                        (focus)="animateUserNameFn()" (mouseover)="animateUserNameFn()" class="form-control textinput">
+                </div>
+            </li>
+            <li class="position-relative mar-sm">
+                <div class="txtbox-wrap position-relative">
+                    <div [@animeTrigger]="animatePassword?'over':'left'" class="position-absolute inputlbl">Password
+                    </div>
+                    <input (focus)="animatePasswordFn()" (mouseover)="animatePasswordFn()"
+                        class="form-control textinput" id="password" type="text" formControlName="password">
 
                 </div>
-                <input id="userName" type="text" name="userName" formControlName="userName" required minlength="4"
-                    (focus)="animateUserNameFn()" (mouseover)="animateUserNameFn()" class="form-control textinput">
-            </div>
-        </li>
-        <li class="position-relative mar-sm">
-            <div class="txtbox-wrap position-relative">
-                <div [@animeTrigger]="animatePassword?'over':'left'" class="position-absolute inputlbl">Password</div>
-                <input (focus)="animatePasswordFn()" (mouseover)="animatePasswordFn()" class="form-control textinput"
-                    id="password" type="text" formControlName="password">
+            </li>
 
-            </div>
-        </li>
-
-        <li>
-            <div class="form-check d-flex align-items-center form-switch">
-                <input id="rememberMe" type="checkbox" id="flexSwitchCheckChecked" checked formControlName="rememberMe">
-                <label class="form-check-label text-light" for="flexSwitchCheckChecked">Remember Me</label>
-            </div>
-        </li>
-        <li>
-            <button type="submit" [disabled]="!loginForm.valid">LOGIN</button>
-        </li>
-    </ul>
-</form>
+            <li>
+                <div class="form-check d-flex align-items-center form-switch">
+                    <input id="rememberMe" type="checkbox" id="flexSwitchCheckChecked" checked
+                        formControlName="rememberMe">
+                    <label class="form-check-label text-light" for="flexSwitchCheckChecked">Remember Me</label>
+                </div>
+            </li>
+            <li>
+                <button type="submit" [disabled]="!loginForm.valid">LOGIN</button>
+            </li>
+        </ul>
+    </form>
+</section>

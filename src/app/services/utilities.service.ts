@@ -35,8 +35,6 @@ export class UtilitiesService {
     })
   }
 
-
-
   SaveUserAndTokens(payload) {
     this.cookieService.setCookieStringify("user", payload?.User, 1);
     this.cookieService.setCookie("refreshToken", payload?.Tokens?.RefreshToken, 1);

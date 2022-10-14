@@ -1,10 +1,10 @@
+@import "./reset.scss";
 @import "./assets/scss/variables.scss";
 @import "./assets/scss/animations.scss";
 
 
-
-
 /* Provide sufficient contrast against white background */
+
 
 
 input[type=checkbox] {
@@ -35,7 +35,15 @@ input[type=checkbox]:checked {
 a {
   color: #000000;
   font-family: $font-header;
+  padding: 0.3125rem 0.4rem;
+  text-decoration: none !important;
+}
+
+a:hover {
   cursor: pointer;
+  background-color: #78aadd;
+  padding: 0.3125rem 0.4rem;
+  border-radius: 4px;
 }
 
 h1 {
@@ -75,11 +83,7 @@ button:hover {
   background-color: $secondary-200;
 }
 
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
+
 
 .error {
   background-color: $error-100;
@@ -93,6 +97,44 @@ a.navbar-brand {
 
 .valid {
   display: inline-block;
+}
+
+#navbar {
+  nav {
+    background: $primary-300;
+    background: linear-gradient(90deg,
+        $primary-100 10%,
+        $primary-200 100%,
+        $primary-300 100%);
+
+    a {
+      color: #fff;
+    }
+  }
+
+  #login {
+    a {
+      color: rgb(249, 245, 245);
+    }
+  }
+}
+
+#loading {
+
+
+  svg {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+  }
+
+  @supports (backdrop-filter: blur(1rem)) {
+    .svg {
+      backdrop-filter: blur(0.1rem);
+    }
+  }
 }
 
 .bg-second {
@@ -170,17 +212,8 @@ a.navbar-brand {
   background-color: #f8f9fa;
 }
 
-.nav-bg {
-  background: $primary-300;
-  background: linear-gradient(90deg,
-      $primary-100 10%,
-      $primary-200 100%,
-      $primary-300 100%);
-}
 
-.nav-bg a {
-  color: #fff;
-}
+
 
 .colr-1 {
   color: #141624;

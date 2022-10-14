@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Fruktur&family=Lato&display=swap");
 
-$primary-100: hsl(209, 81%, 50%);
+$primary-100: #1883e7;
 $primary-200: hsl(209, 81%, 40%);
 $primary-300: hsl(209, 81%, 30%);
 $primary-blur-100: hsl(209, 81%, 50%, 75%);
 $primary-blur-200: hsl(209, 81%, 40%, 75%);
 $primary-blur-300: hsl(209, 81%, 30%, 75%);
-$secondary-100: hsl(27, 100%, 50%);
+$secondary-100: #ff7300;
 $secondary-200: hsl(27, 100%, 60%);
 $secondary-300: hsl(27, 100%, 70%);
 $secondary-blur-100: hsl(27, 100%, 50%, 75%);
@@ -23,6 +23,7 @@ $fa-font-path: "../webfonts";
 
 
 $white: #fff;
+$white-blur: rgba(164, 101, 38, 0.75);
 $font-header: "Lato", sans-serif;
 $font-body: "Fruktur", cursive;
 
