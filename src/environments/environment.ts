@@ -4,11 +4,7 @@
 
 export const environment = {
   production: false,
-//AuthEngineApi
   ROOT_URL: "http://localhost:5000/",
-  //IIS
-  //ROOT_URL: "http://localhost:63580/",
-  //ROOT_URL: "http://hansdeep-001-site35.htempurl.com/",
 };
 
 /*

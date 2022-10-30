@@ -1,6 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-
-
 import { Observable } from "rxjs";
 import { Router } from "@angular/router";
 import { LabelAnimation } from "../animations/animations";
@@ -66,6 +64,8 @@ export class RegisterComponent implements OnInit {
           this.utilityService.RegisterUserInfo(model)
             .then((data: any) => {
               this.utilityService.Notify(data?.notify?.success, data?.notify?.message)
+            }).then(() => {
+              this.router.navigate(['./secure']);
             })
         },
         (onReject: any) => { this.utilityService.Notify(onReject?.notify?.success, onReject?.notify?.message) }

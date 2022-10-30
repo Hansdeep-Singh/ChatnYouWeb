@@ -1,8 +1,7 @@
 <section id="login">
     <form [formGroup]="loginForm" (ngSubmit)="submit(loginForm.value)">
         <ul class="navbar-nav d-flex align-items-center">
-            <li class="valmess"></li>
-            <li> <a [routerLink]="['/forgot']">Forgot Password?</a></li>
+            <li> <a [routerLink]="['/forgot']"><small>Forgot Password?</small></a></li>
             <li class="position-relative">
                 <div class="txtbox-wrap position-relative">
                     <div [@animeTrigger]="animateUserName?'over':'left'" class="position-absolute inputlbl">
@@ -32,7 +31,7 @@
                 </div>
             </li>
             <li>
-                <button type="submit" [disabled]="!loginForm.valid">LOGIN</button>
+                <button type="submit" [disabled]="!loginForm.valid">Login</button>
             </li>
         </ul>
     </form>

@@ -70,7 +70,7 @@ h5 {
 
 
 button {
-  background-color: $secondary-100  !important;
+  background-color: $secondary-100 !important;
   color: #fff;
   border: none !important;
   border-radius: 7px !important;
@@ -138,7 +138,7 @@ button:hover {
 }
 
 .bg-second {
-  background-color: $secondary-100  !important;
+  background-color: $secondary-100 !important;
   opacity: 1 !important;
 }
 
@@ -368,11 +368,6 @@ input:focus {
 
 .head-3 {
   font-size: 20px;
-}
-
-.valmess {
-  font-size: 10px;
-  color: #fff;
 }
 
 @media screen and (max-width: 992px) {
