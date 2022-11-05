@@ -8,7 +8,7 @@
     <!-- Email Address  -->
     <div class="row mt-2">
       <div class="col">
-        <div class="txtbox-wrap position-relative">
+        <div class="position-relative">
           <div [@animeTrigger]="animateEmail?'over':'left'" class="position-absolute inputlbl">
 
             <div class="error"
@@ -17,16 +17,15 @@
             <ng-template #emailLabel>Email Address</ng-template>
 
           </div>
-          <input id="emailAddress" type="text" name="emailAddress" formControlName="emailAddress" required
+          <input id="emailAddress" type="email" name="emailAddress" formControlName="emailAddress" required
             (focus)="this.animateEmail=true" (mouseover)="this.animateEmail=true" class="form-control">
-
         </div>
       </div>
     </div>
     <!-- User Name -->
     <div class="row mt-2">
       <div class="col">
-        <div class="txtbox-wrap position-relative">
+        <div class="position-relative">
           <div [@animeTrigger]="animateUserName?'over':'left'" class="position-absolute inputlbl">
             <div class="error" *ngIf="userName.invalid && (userName.dirty || userName.touched) ; else userLabel">
               User Name is required.</div>
@@ -43,7 +42,7 @@
     <!-- Password -->
     <div class="row mt-2">
       <div class="col">
-        <div class="txtbox-wrap position-relative">
+        <div class="position-relative">
           <div [@animeTrigger]="animatePassword?'over':'left'" class="position-absolute inputlbl">
             <div class="error" *ngIf="password.invalid && (password.dirty || password.touched) ; else passwordLabel">
               Password is required.</div>
@@ -61,7 +60,7 @@
       <!-- Gender -->
       <div class="col">
 
-        <div class="txtbox-wrap position-relative">
+        <div class="position-relative">
           <div [@animeTrigger]="animateGender?'over':'left'" class="position-absolute inputlbl">
             <div class="error" *ngIf="gender.invalid && (gender.dirty || gender.touched) ; else GenderLabel">
               Gender is required.</div>
@@ -78,7 +77,7 @@
       </div>
       <!-- Age -->
       <div class="col">
-        <div class="txtbox-wrap position-relative">
+        <div class="position-relative">
           <div [@animeTrigger]="animateAge?'over':'left'" class="position-absolute inputlbl">
             <div class="error" *ngIf="age.invalid && (age.dirty || age.touched) ; else AgeLabel">
               Age is required.</div>
@@ -101,7 +100,7 @@
       <!-- Country -->
       <div class="col">
 
-        <div class="txtbox-wrap position-relative">
+        <div class="position-relative">
           <div [@animeTrigger]="animateCountry?'over':'left'" class="position-absolute inputlbl">
             <div class="error" *ngIf="country.invalid && (country.dirty || country.touched) ; else countryLabel">
               Country is required.</div>
@@ -122,7 +121,7 @@
       </div>
       <!-- City -->
       <div class="col">
-        <div class="txtbox-wrap position-relative">
+        <div class=" position-relative">
           <div [@animeTrigger]="animateCity?'over':'left'" class="position-absolute inputlbl">
             <div class="error" *ngIf="city.invalid && (city.dirty || city.touched) ; else cityLabel">
               City is required.</div>
@@ -141,13 +140,13 @@
     </div>
     <div class="row mt-2">
       <div class="col text-center">
-        <div class="valid">
+        <!-- <div class="valid">
           <button type="submit">Submit</button>
-        </div>
-
-        <!-- <div class="valid" (mouseover)="validForm()">
-          <button type="submit" class="btn btn-default" [disabled]="registerForm.invalid">Submit</button>
         </div> -->
+
+        <div class="valid" (mouseover)="validForm()">
+          <button type="submit" class="btn btn-default" [disabled]="registerForm.invalid">Submit</button>
+        </div>
       </div>
     </div>
   </div>

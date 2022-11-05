@@ -3,7 +3,7 @@
         <ul class="navbar-nav d-flex align-items-center">
             <li> <a [routerLink]="['/forgot']"><small>Forgot Password?</small></a></li>
             <li class="position-relative">
-                <div class="txtbox-wrap position-relative">
+                <div class="position-relative">
                     <div [@animeTrigger]="animateUserName?'over':'left'" class="position-absolute inputlbl">
                         <div *ngIf="loginForm.get('userName').touched; else label">User Name is required</div>
                         <ng-template #label>User name</ng-template>
@@ -13,16 +13,14 @@
                         (focus)="animateUserNameFn()" (mouseover)="animateUserNameFn()" class="form-control textinput">
                 </div>
             </li>
-            <li class="position-relative mar-sm">
-                <div class="txtbox-wrap position-relative">
+            <li>
+                <div class="position-relative">
                     <div [@animeTrigger]="animatePassword?'over':'left'" class="position-absolute inputlbl">Password
                     </div>
                     <input (focus)="animatePasswordFn()" (mouseover)="animatePasswordFn()"
-                        class="form-control textinput" id="password" type="text" formControlName="password">
-
+                        class="form-control textinput" id="password" type="password" formControlName="password">
                 </div>
             </li>
-
             <li>
                 <div class="form-check d-flex align-items-center form-switch">
                     <input id="rememberMe" type="checkbox" id="flexSwitchCheckChecked" checked

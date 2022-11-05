@@ -83,7 +83,21 @@ button:hover {
   background-color: $secondary-200;
 }
 
+.material-icons.md-18 {
+  font-size: 18px;
+}
 
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-36 {
+  font-size: 36px;
+}
+
+.material-icons.md-48 {
+  font-size: 48px;
+}
 
 .error {
   background-color: $error-100;
@@ -98,6 +112,8 @@ button:hover {
 .valid {
   display: inline-block;
 }
+
+
 
 #navbar {
   nav {
@@ -116,12 +132,20 @@ button:hover {
     a {
       color: rgb(249, 245, 245);
     }
+
+    span {
+      position: absolute;
+      right: 0.5rem;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
 
 #loading {
-
-
   svg {
     position: absolute;
     left: 50%;
@@ -444,7 +468,7 @@ input:focus {
 .inputlbl {
   padding-left: 5px;
   top: 7px;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .btnrego {
@@ -507,7 +531,7 @@ input:focus {
 
       i {
         margin: 7px 0;
-        color: $secondary-100;
+        color: $white;
       }
     }
 

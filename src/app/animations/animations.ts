@@ -15,7 +15,7 @@ export const LabelAnimation = {
     state(
       "over",
       style({
-        top: "-3px",
+        top: "-4px",
         right: "12px",
         opacity: 0.8,
       })

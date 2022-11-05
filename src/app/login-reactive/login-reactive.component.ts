@@ -67,6 +67,7 @@ export class LoginReactiveComponent implements OnInit {
   animatePasswordFn() {
     this.animatePassword = true;
   }
+
   ngOnInit(): void {
   }
 
