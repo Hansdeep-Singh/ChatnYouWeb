@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LabelAnimation } from '../animations/animations';
 import { AuthService } from '../auth/authService';
@@ -25,10 +25,10 @@ export class LoginReactiveComponent implements OnInit {
     private sessionService: SessionService,
     private authService: AuthService,
     private route: ActivatedRoute) { }
-  loginForm = new FormGroup({
-    userName: new FormControl('', Validators.required),
-    password: new FormControl(''),
-    rememberMe: new FormControl(false)
+  loginForm = new UntypedFormGroup({
+    userName: new UntypedFormControl('', Validators.required),
+    password: new UntypedFormControl(''),
+    rememberMe: new UntypedFormControl(false)
   });
   animateUserName = false;
   animatePassword = false;

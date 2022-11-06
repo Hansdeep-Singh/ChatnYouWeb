@@ -2,7 +2,6 @@
 <div [@notifyTrigger]="flagShowHide?'show':'hide'">
     <app-notify (close)="closeNotification($event)"></app-notify>
 </div>
-
 <ng-container *ngIf="loadingService.isloading$| async">
     <section id="loading">
         <svg width="140" height="64" viewBox="0 0 140 64" xmlns="http://www.w3.org/2000/svg" fill="#ff7300">

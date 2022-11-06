@@ -3,7 +3,7 @@ import { Observable } from "rxjs";
 import { Router } from "@angular/router";
 import { LabelAnimation } from "../animations/animations";
 import { userModel } from "../models/user";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
 import { NotifyService } from "../services/notify.service";
 import { CookieService } from "../services/cookie.service";
 import { AuthService } from "../auth/authService";
@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
     private authService: AuthService) { }
 
 
-  registerForm!: FormGroup;
+  registerForm!: UntypedFormGroup;
 
   genders = ['Male', 'Female', 'Other'];
   ages = [];
@@ -108,14 +108,14 @@ export class RegisterComponent implements OnInit {
     for (let i = 18; i < 100; i++) {
       this.ages.push(i);
     }
-    this.registerForm = new FormGroup({
-      emailAddress: new FormControl('', Validators.required),
-      userName: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
-      gender: new FormControl('', Validators.required),
-      age: new FormControl('', Validators.required),
-      country: new FormControl('', Validators.required),
-      city: new FormControl('', Validators.required),
+    this.registerForm = new UntypedFormGroup({
+      emailAddress: new UntypedFormControl('', Validators.required),
+      userName: new UntypedFormControl('', Validators.required),
+      password: new UntypedFormControl('', Validators.required),
+      gender: new UntypedFormControl('', Validators.required),
+      age: new UntypedFormControl('', Validators.required),
+      country: new UntypedFormControl('', Validators.required),
+      city: new UntypedFormControl('', Validators.required),
     })
   }
 }

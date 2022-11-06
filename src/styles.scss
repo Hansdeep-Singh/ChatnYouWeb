@@ -1,4 +1,4 @@
-@import "./reset.scss";
+// @import "./reset.scss";
 @import "./assets/scss/variables.scss";
 @import "./assets/scss/animations.scss";
 
@@ -501,7 +501,7 @@ input:focus {
   .container {
     position: absolute;
     z-index: 1000;
-    top: 100px;
+    top: 94px;
     left: 50%;
     transform: translate(-50%, -50%);
   }
@@ -517,20 +517,22 @@ input:focus {
     justify-content: space-between;
     color: #fff;
 
-
-
-
     .message {
       display: flex;
       flex-direction: column;
 
+      p {
+        padding: 5px 0px;
+      }
+
       h4 {
         display: flex;
         align-items: center;
+        margin: -7px 0px;
+
       }
 
       i {
-        margin: 7px 0;
         color: $white;
       }
     }
@@ -542,7 +544,7 @@ input:focus {
       justify-content: space-between;
 
       i {
-        margin: 7px 0;
+        margin: -7px -8px;
         color: $white;
       }
     }
