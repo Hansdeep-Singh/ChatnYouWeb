@@ -10,7 +10,6 @@
       <div class="col">
         <div class="position-relative">
           <div [@animeTrigger]="animateEmail?'over':'left'" class="position-absolute inputlbl">
-
             <div class="error"
               *ngIf="emailAddress.invalid && (emailAddress.dirty || emailAddress.touched) ; else emailLabel">
               Email address is required.</div>

@@ -2,6 +2,10 @@
 @import "./assets/scss/variables.scss";
 @import "./assets/scss/animations.scss";
 
+// * {
+//   box-sizing: border-box;
+//   outline: 1px solid rgb(186, 182, 202) !important;
+// }
 
 /* Provide sufficient contrast against white background */
 
@@ -23,7 +27,6 @@ input[type=checkbox] {
   margin: 0 0.4em;
   -moz-appearance: none;
   appearance: none;
-  -webkit-print-color-adjust: exact;
 }
 
 input[type=checkbox]:checked {
@@ -71,7 +74,7 @@ h5 {
 
 button {
   background-color: $secondary-100 !important;
-  color: #fff;
+  color: #fff !important;
   border: none !important;
   border-radius: 7px !important;
   border-collapse: separate;
@@ -81,6 +84,10 @@ button {
 
 button:hover {
   background-color: $secondary-200;
+}
+
+button:disabled {
+  background-color: #424242 !important;
 }
 
 .material-icons.md-18 {
@@ -569,4 +576,50 @@ input:focus {
 
 
 
+}
+
+#navigation {
+  display: flex;
+  background-color: $primary-100;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0px;
+
+  .logo {
+    a {
+      color: $white;
+    }
+  }
+
+  .navigation {
+    display: flex;
+
+    .toggler {
+      padding: 10px;
+      background-color: #000000;
+    }
+
+    @media only screen and (min-width: 600px) {
+      .toggler {
+        display: none;
+      }
+    }
+
+    ul {
+      display: flex;
+      list-style: none;
+      margin: initial;
+      padding: initial;
+    }
+
+    ul li {
+      display: flex;
+      align-items: center;
+
+
+      a {
+        color: #fff;
+      }
+    }
+  }
 }

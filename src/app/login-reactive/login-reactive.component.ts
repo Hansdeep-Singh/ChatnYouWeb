@@ -8,7 +8,8 @@ import { CallsService } from '../services/calls.service';
 
 import { CookieService } from '../services/cookie.service';
 import { NotifyService } from '../services/notify.service';
-import { SessionService } from '../services/session.service';
+import { UtilitiesService } from '../services/utilities.service';
+
 
 @Component({
   selector: 'app-login-reactive',
@@ -22,12 +23,12 @@ export class LoginReactiveComponent implements OnInit {
   constructor(private router: Router, private callsService: CallsService,
     private cookieService: CookieService,
     private notifyService: NotifyService,
-    private sessionService: SessionService,
+    private utilityService: UtilitiesService,
     private authService: AuthService,
     private route: ActivatedRoute) { }
   loginForm = new UntypedFormGroup({
     userName: new UntypedFormControl('', Validators.required),
-    password: new UntypedFormControl(''),
+    password: new UntypedFormControl('', Validators.required),
     rememberMe: new UntypedFormControl(false)
   });
   animateUserName = false;
@@ -59,9 +60,17 @@ export class LoginReactiveComponent implements OnInit {
       });
   }
 
+  get userName() { return this.loginForm.get('userName'); }
+  get password() { return this.loginForm.get('password'); }
+
+  validForm() {
+    this.loginForm.invalid ? this.utilityService.Notify(false, 'Please complete the form') : "";
+  }
+
   animateUserNameFn() {
     this.animateUserName = true;
   }
+
 
 
   animatePasswordFn() {
