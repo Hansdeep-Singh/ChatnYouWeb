@@ -10,7 +10,7 @@
       <div class="col">
         <div class="position-relative">
           <div [@animeTrigger]="animateEmail?'over':'left'" class="position-absolute inputlbl">
-            <div class="error"
+            <div class="error small"
               *ngIf="emailAddress.invalid && (emailAddress.dirty || emailAddress.touched) ; else emailLabel">
               Email address is required.</div>
             <ng-template #emailLabel>Email Address</ng-template>
@@ -26,7 +26,7 @@
       <div class="col">
         <div class="position-relative">
           <div [@animeTrigger]="animateUserName?'over':'left'" class="position-absolute inputlbl">
-            <div class="error" *ngIf="userName.invalid && (userName.dirty || userName.touched) ; else userLabel">
+            <div class="error small" *ngIf="userName.invalid && (userName.dirty || userName.touched) ; else userLabel">
               User Name is required.</div>
             <ng-template #userLabel>User Name</ng-template>
           </div>
@@ -43,7 +43,8 @@
       <div class="col">
         <div class="position-relative">
           <div [@animeTrigger]="animatePassword?'over':'left'" class="position-absolute inputlbl">
-            <div class="error" *ngIf="password.invalid && (password.dirty || password.touched) ; else passwordLabel">
+            <div class="error small"
+              *ngIf="password.invalid && (password.dirty || password.touched) ; else passwordLabel">
               Password is required.</div>
             <ng-template #passwordLabel>Password</ng-template>
           </div>
@@ -61,7 +62,7 @@
 
         <div class="position-relative">
           <div [@animeTrigger]="animateGender?'over':'left'" class="position-absolute inputlbl">
-            <div class="error" *ngIf="gender.invalid && (gender.dirty || gender.touched) ; else GenderLabel">
+            <div class="error small" *ngIf="gender.invalid && (gender.dirty || gender.touched) ; else GenderLabel">
               Gender is required.</div>
             <ng-template #GenderLabel>Gender</ng-template>
           </div>
@@ -78,7 +79,7 @@
       <div class="col">
         <div class="position-relative">
           <div [@animeTrigger]="animateAge?'over':'left'" class="position-absolute inputlbl">
-            <div class="error" *ngIf="age.invalid && (age.dirty || age.touched) ; else AgeLabel">
+            <div class="error small" *ngIf="age.invalid && (age.dirty || age.touched) ; else AgeLabel">
               Age is required.</div>
             <ng-template #AgeLabel>Age</ng-template>
           </div>
@@ -101,7 +102,7 @@
 
         <div class="position-relative">
           <div [@animeTrigger]="animateCountry?'over':'left'" class="position-absolute inputlbl">
-            <div class="error" *ngIf="country.invalid && (country.dirty || country.touched) ; else countryLabel">
+            <div class="error small" *ngIf="country.invalid && (country.dirty || country.touched) ; else countryLabel">
               Country is required.</div>
             <ng-template #countryLabel>Country</ng-template>
           </div>
@@ -122,7 +123,7 @@
       <div class="col">
         <div class=" position-relative">
           <div [@animeTrigger]="animateCity?'over':'left'" class="position-absolute inputlbl">
-            <div class="error" *ngIf="city.invalid && (city.dirty || city.touched) ; else cityLabel">
+            <div class="error small" *ngIf="city.invalid && (city.dirty || city.touched) ; else cityLabel">
               City is required.</div>
             <ng-template #cityLabel>City</ng-template>
           </div>

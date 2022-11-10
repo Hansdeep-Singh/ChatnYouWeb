@@ -6,7 +6,7 @@
                 <!-- User Name -->
                 <div class="position-relative">
                     <div [@animeTrigger]="animateUserName?'over':'left'" class="position-absolute inputlbl">
-                        <div class="error"
+                        <div class="error small"
                             *ngIf="userName.invalid && (userName.dirty || userName.touched) ; else userNameLabel">User
                             Name
                             is
@@ -21,7 +21,7 @@
                 <!-- Password -->
                 <div class="position-relative">
                     <div [@animeTrigger]="animatePassword?'over':'left'" class="position-absolute inputlbl">
-                        <div class="error"
+                        <div class="error small"
                             *ngIf="password.invalid && (password.dirty || password.touched) ; else passwordLabel">
                             Password
                             is

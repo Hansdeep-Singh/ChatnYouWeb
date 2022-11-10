@@ -109,6 +109,7 @@ button:disabled {
 .error {
   background-color: $error-100;
   color: $white;
+  line-height: 1em;
   border-radius: 11px;
   padding: 0 3px;
   animation: shake 0.5s;
