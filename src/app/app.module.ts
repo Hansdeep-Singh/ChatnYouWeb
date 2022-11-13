@@ -5,7 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { RegisterComponent } from "./register/register.component";
-
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SecureComponent } from "./secure/secure.component";
 import { RouterModule, CanActivate } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
@@ -18,6 +18,7 @@ import { LoginReactiveComponent } from './login-reactive/login-reactive.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from "./auth/auth.guard";
 import { LogoutComponent } from './logout/logout.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // @Directive()
 @NgModule({
@@ -39,10 +40,12 @@ import { LogoutComponent } from './logout/logout.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    MDBBootstrapModule.forRoot(),
     RouterModule.forRoot([
       { path: "", component: HomeComponent, pathMatch: "full" },
       { path: "secure", component: SecureComponent },
     ], { relativeLinkResolution: 'legacy' }),
+    NgbModule,
   ],
 
   providers: [
