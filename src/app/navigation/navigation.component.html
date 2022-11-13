@@ -57,103 +57,22 @@
     </div>
   </div>
 </section> -->
+<section id="navbar">
+  <mdb-navbar SideClass="navbar navbar-expand-lg">
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand" [routerLink]="['/']"> Chat-n-You</a></mdb-navbar-brand>
 
-<mdb-navbar SideClass="navbar navbar-expand-lg fixed-top">
-  <!-- Navbar brand -->
-  <mdb-navbar-brand><a class="navbar-brand" [routerLink]="['/']"> CV- Hans</a></mdb-navbar-brand>
+    <!-- Collapsible content -->
+    <links class="d-flex justify-content-center">
+      <!-- Links -->
 
-  <div class="d-lg-none cv">
-    <a href="..\assets\docs\cv.docx" download> CV
-      <i class="fa-solid fa-arrow-down"></i>
-    </a>
-  </div>
-  <!-- Collapsible content -->
-  <links class="d-flex justify-content-between">
-    <!-- Links -->
-    <ul class="navbar-nav mr-auto">
-      <!-- Angular Dashboards TO DO -->
-      <!-- <li class="nav-item dropdown" dropdown>
-              <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light">
-                  ANGULAR DASHBOARDS</a>
-              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-                  <a class="dropdown-item waves-light" [routerLink]="['/videos']">POLARIS</a>
-                  <a class="dropdown-item waves-light" [routerLink]="['/podcasts']">SIGMA</a>
-              </div>
-          </li> -->
-      <li class="nav-item dropdown" dropdown>
-        <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light">
-          CORPORATE WORK</a>
-        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+      <!-- Search form -->
+      <div class="d-flex align-items-center">
 
-          <a class="dropdown-item waves-light" href="https://myaccount.hunterwater.com.au/login"
-            target="_blank">HunterWater Accounts portal</a>
-          <a class="dropdown-item waves-light" href="https://subaru.cpmaustralia.com.au/" target="_blank">Subaru
-            Recall</a>
-          <a class="dropdown-item waves-light" [routerLink]="['/jarvis']">Jarvis iOS/Andriod app</a>
-          <a class="dropdown-item waves-light" [routerLink]="['/optus']">Optus iOS/Andriod app</a>
+        <app-login-reactive></app-login-reactive>
 
-        </div>
-      </li>
-      <li class="nav-item dropdown" dropdown>
-        <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light">
-          PROJECTS</a>
-        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-
-          <a class="dropdown-item waves-light" href="https://vibestechnology.com.au/" target="_blank">Vibes
-            Technology</a>
-          <a class="dropdown-item waves-light" href="http://matttownsendpt.com.au/" target="_blank">Matt
-            Personal Trainer</a>
-          <a class="dropdown-item waves-light" href="http://www.chatnyou.com/" target="_blank">
-            Chat/Dating Site</a>
-          <a class="dropdown-item waves-light" href="http://hansdeep-001-site23.atempurl.com/Home/Order"
-            target="_blank">
-            Nepalese Restaurant</a>
-        </div>
-      </li>
-
-      <li class="nav-item dropdown" dropdown>
-        <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light">
-          EDUCATION</a>
-        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-          <a class="dropdown-item waves-light" [routerLink]="['/award']">Award for all around
-            performance</a>
-          <a class="dropdown-item waves-light" [routerLink]="['/btech']">Bachelor of Computer Science</a>
-          <a class="dropdown-item waves-light" [routerLink]="['/gdit']">Graduate diploma in information
-            technnology</a>
-        </div>
-      </li>
-
-      <li class="nav-item dropdown" dropdown>
-        <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light">
-          BOOTSTRAP THEMES</a>
-        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-          <a class="dropdown-item waves-light" href="http://hansdeep-001-site25.htempurl.com/" target="_blank">
-            GYM website theme</a>
-          <a class="dropdown-item waves-light" href="http://hansdeep-001-site26.htempurl.com/" target="_blank">
-            FASHION Store theme</a>
-        </div>
-      </li>
-
-
-
-    </ul>
-
-    <!-- Links -->
-    <div class="d-flex mx-2 d-none d-lg-block align-items-left cv">
-      <a href="..\assets\docs\cv.docx" download> CV
-        <i class="fa-solid fa-arrow-down"></i>
-      </a>
-    </div>
-
-    <!-- Search form -->
-    <div class="form-inline waves-light d-flex align-items-center phone">
-      <button type="button" class="colorfullbtn">
-        <i class="fas fa-phone"></i>&nbsp;
-        <a href="tel:0426676567">042-66-76567</a>
-      </button>
-
-
-    </div>
-  </links>
-  <!-- Collapsible content -->
-</mdb-navbar>
+      </div>
+    </links>
+    <!-- Collapsible content -->
+  </mdb-navbar>
+</section>

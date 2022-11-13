@@ -1,51 +1,50 @@
 <section id="login">
     <form [formGroup]="loginForm" (ngSubmit)="submit(loginForm.value)">
-        <ul class="navbar-nav d-flex align-items-center">
-            <li> <a [routerLink]="['/forgot']"><small>Forgot Password?</small></a></li>
-            <li>
-                <!-- User Name -->
-                <div class="position-relative">
-                    <div [@animeTrigger]="animateUserName?'over':'left'" class="position-absolute inputlbl">
-                        <div class="error small"
-                            *ngIf="userName.invalid && (userName.dirty || userName.touched) ; else userNameLabel">User
-                            Name
-                            is
-                            required</div>
-                        <ng-template #userNameLabel>User name</ng-template>
-                    </div>
-                    <input id="userName" type="text" name="userName" formControlName="userName" required
-                        (focus)="animateUserNameFn()" (mouseover)="animateUserNameFn()" class="form-control textinput">
+        <div class="nav-login">
+            <div class=" d-flex align-items-center justify-content-center">
+                <a [routerLink]="['/forgot']"><small>Forgot Password?</small></a>
+            </div>
+            <!-- User Name -->
+
+            <div class="position-relative">
+                <div [@animeTrigger]="animateUserName?'over':'left'" class="position-absolute inputlbl">
+                    <div class="error small"
+                        *ngIf="userName.invalid && (userName.dirty || userName.touched) ; else userNameLabel">User
+                        Name
+                        is
+                        required</div>
+                    <ng-template #userNameLabel>User name</ng-template>
                 </div>
-            </li>
-            <li>
-                <!-- Password -->
-                <div class="position-relative">
-                    <div [@animeTrigger]="animatePassword?'over':'left'" class="position-absolute inputlbl">
-                        <div class="error small"
-                            *ngIf="password.invalid && (password.dirty || password.touched) ; else passwordLabel">
-                            Password
-                            is
-                            required</div>
-                        <ng-template #passwordLabel>Password</ng-template>
-                    </div>
-                    <input (focus)="animatePasswordFn()" (mouseover)="animatePasswordFn()"
-                        class="form-control textinput" id="password" type="password" formControlName="password">
+                <input id="userName" type="text" name="userName" formControlName="userName" required
+                    (focus)="animateUserNameFn()" (mouseover)="animateUserNameFn()" class="form-control textinput">
+            </div>
+
+            <!-- Password -->
+
+            <div class="position-relative">
+                <div [@animeTrigger]="animatePassword?'over':'left'" class="position-absolute inputlbl">
+                    <div class="error small"
+                        *ngIf="password.invalid && (password.dirty || password.touched) ; else passwordLabel">
+                        Password
+                        is
+                        required</div>
+                    <ng-template #passwordLabel>Password</ng-template>
                 </div>
-            </li>
-            <li>
-                <!-- Remember me -->
-                <div class="form-check d-flex align-items-center form-switch">
-                    <input id="rememberMe" type="checkbox" id="flexSwitchCheckChecked" checked
-                        formControlName="rememberMe">
-                    <label class="small text-light" for="flexSwitchCheckChecked">Remember Me</label>
-                </div>
-            </li>
-            <li>
-                <!-- Submit -->
-                <div class="valid" (mouseover)="validForm()">
-                    <button type="submit" class="btn btn-default" [disabled]="loginForm.invalid">Submit</button>
-                </div>
-            </li>
-        </ul>
+                <input (focus)="animatePasswordFn()" (mouseover)="animatePasswordFn()" class="form-control textinput"
+                    id="password" type="password" formControlName="password">
+            </div>
+
+            <!-- Remember me -->
+
+            <div class="form-check d-flex align-items-center form-switch">
+                <input id="rememberMe" type="checkbox" id="flexSwitchCheckChecked" checked formControlName="rememberMe">
+                <label class="small text-light" for="flexSwitchCheckChecked">Remember Me</label>
+            </div>
+
+            <!-- Submit -->
+            <div class="valid d-flex justify-content-center" (mouseover)="validForm()">
+                <button type="submit" class="btn btn-default" [disabled]="loginForm.invalid">Submit</button>
+            </div>
+        </div>
     </form>
 </section>
