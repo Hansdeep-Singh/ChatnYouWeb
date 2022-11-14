@@ -63,13 +63,15 @@
     <mdb-navbar-brand><a class="navbar-brand" [routerLink]="['/']"> Chat-n-You</a></mdb-navbar-brand>
 
     <!-- Collapsible content -->
-    <links class="d-flex justify-content-center">
-      <!-- Links -->
-
-      <!-- Search form -->
-      <div class="d-flex align-items-center">
-
-        <app-login-reactive></app-login-reactive>
+    <links>
+      <!-- Login form -->
+      <div>
+        <div *ngIf="logged; else loginForm">
+          <app-logout></app-logout>
+        </div>
+        <ng-template #loginForm>
+          <app-login-reactive></app-login-reactive>
+        </ng-template>
 
       </div>
     </links>

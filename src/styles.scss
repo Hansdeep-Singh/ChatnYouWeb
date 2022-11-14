@@ -152,9 +152,35 @@ button:disabled {
   display: inline-block;
 }
 
+#home {
+  .container {
+    margin-top: 26vh;
+  }
 
+  .right {
+    height: calc(100vh - 41px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      background-color: #000000;
+    }
+  }
+}
 
 #navbar {
+  links {
+    display: flex;
+    justify-content: end;
+  }
+
+  @media screen and (max-width: 992px) {
+    links {
+      justify-content: center;
+    }
+  }
+
   nav {
     background: $primary-300;
     background: linear-gradient(90deg,

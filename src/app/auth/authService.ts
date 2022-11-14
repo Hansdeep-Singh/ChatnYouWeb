@@ -5,16 +5,11 @@ import { CookieService } from '../services/cookie.service';
 import { SessionService } from '../services/session.service';
 import { CallsService } from '../services/calls.service';
 
-
-
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService implements OnInit {
-
-
   private _accessToken: string | undefined;
-
   get accessToken() {
     return this._accessToken;
   }
