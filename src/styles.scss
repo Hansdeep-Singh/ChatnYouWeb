@@ -38,9 +38,6 @@ $chatnyou-theme: mat.define-light-theme((color: (primary: $chatnyou-primary,
 //   outline: 1px solid rgb(186, 182, 202) !important;
 // }
 
-/* Provide sufficient contrast against white background */
-
-
 
 input[type=checkbox] {
   width: 2em;
@@ -152,9 +149,65 @@ button:disabled {
   display: inline-block;
 }
 
+#landingpage {
+  .land {
+    display: flex;
+    flex-direction: row;
+    height: 96vh;
+
+    .left {
+      flex: 1 1 0;
+      margin: 3em 0;
+    }
+
+    @media screen and (max-width: 1200px) {
+      .left {
+        flex: 0;
+
+      }
+    }
+
+    .right {
+      flex: 1 1 0;
+      align-self: center;
+    }
+
+    @media screen and (max-width: 1200px) {
+      .right {
+        display: flex;
+        align-items: flex-end;
+        flex: 0;
+      }
+    }
+
+    .rego {
+      z-index: 199;
+      height: 0px;
+      opacity: 1;
+      width: 80%;
+      margin: auto;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .land {
+      flex-direction: column;
+      height: initial;
+    }
+
+
+  }
+}
+
 #home {
-  .container {
+  .land {
     margin-top: 26vh;
+  }
+
+  @media screen and (max-width: 992px) {
+    .container {
+      margin-top: 6vh;
+    }
   }
 
   .right {
@@ -534,13 +587,7 @@ input:focus {
   animation-iteration-count: infinite;
 }
 
-.rego {
-  z-index: 199;
-  height: 0px;
-  opacity: 1;
-  width: 80%;
-  margin: auto;
-}
+
 
 .navbar-nav li {
   float: right;

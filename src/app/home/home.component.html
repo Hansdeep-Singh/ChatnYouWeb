@@ -1,7 +1,28 @@
-<section id="home">
+<section id="landingpage">
+  <div class="land">
+    <div class="left text-center">
+      <h1>
+        Its as simple as it gets !
+      </h1>
+      <button (click)="regBtnFn()">Create Account</button>
+      <div [@regDown]="anime?'down':'up'" class="rego">
+        <app-register></app-register>
+      </div>
+    </div>
+    <div class="right">
+      <img src="../assets/img/people2.svg" class="img-fluid rounded shadow shadow-cus img-anime rounded-circle" />
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<!-- <section id="home">
   <div class="container-fluid">
     <div class="row">
-      <!-- Left Section -->
+
       <div class="col-lg-6 d-flex flex-column">
         <div class="container">
           <div class="row">
@@ -23,56 +44,53 @@
         </div>
       </div>
 
-      <!-- <div class="row text-center">
-          <h2>Find your Mate</h2>
-          <div class=" flex-column col-sm">
-            <img src="../assets/img/pic1.jpg" class="img-fluid rounded shadow shadow-cus rounded-circle" />
-            <h1>Wow</h1>
-            <p><i>I finally found my perfect match, thanks to Chat-n-You</i></p>
-          </div>
-          <div class="text-center col-sm">
-            <img src="../assets/img/pic2.jpg" class="img-fluid rounded shadow shadow-cus rounded-circle" />
-            <h1>Damn</h1>
-            <p>
-              <i> Its so good to be able to chat with someone and get amazed looking
-                for the perfect friend, or more.</i>
-            </p>
-          </div>
-          <div class="text-center col-sm">
-            <img src="../assets/img/pic3.jpg" class="img-fluid rounded shadow shadow-cus rounded-circle" />
-            <h1>^-^</h1>
-            <p> <i>
-                I started with chat, went on with exchanging numbers and finally
-                date.</i>
-            </p>
-          </div>
-        </div> -->
-      <!-- <div class="row font-montserrat">
-          <div class="col">
-            <ul class="list-group shadow rounded h5">
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                1) Start free fun chat with random people.
-                <span class="material-icons-outlined">
-                  assignment_returned
-                </span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                2) If it clicks (^-^) Express mutual concent to verify email
-                addresses, and phone numbers.
-                <i class="far badge badge-pill badge-info fa-2x fa-check-circle"><span class="font-montserrat">
-                    FREE</span></i>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                3) Get in touch.
-                <i class="far badge badge-pill badge-info fa-2x fa-check-circle"><span class="font-montserrat">
-                    FREE</span></i>
-              </li>
-            </ul>
-          </div>
-        </div> -->
-
-
-      <!-- Right Section -->
+      <div class="row text-center">
+        <h2>Find your Mate</h2>
+        <div class=" flex-column col-sm">
+          <img src="../assets/img/pic1.jpg" class="img-fluid rounded shadow shadow-cus rounded-circle" />
+          <h1>Wow</h1>
+          <p><i>I finally found my perfect match, thanks to Chat-n-You</i></p>
+        </div>
+        <div class="text-center col-sm">
+          <img src="../assets/img/pic2.jpg" class="img-fluid rounded shadow shadow-cus rounded-circle" />
+          <h1>Damn</h1>
+          <p>
+            <i> Its so good to be able to chat with someone and get amazed looking
+              for the perfect friend, or more.</i>
+          </p>
+        </div>
+        <div class="text-center col-sm">
+          <img src="../assets/img/pic3.jpg" class="img-fluid rounded shadow shadow-cus rounded-circle" />
+          <h1>^-^</h1>
+          <p> <i>
+              I started with chat, went on with exchanging numbers and finally
+              date.</i>
+          </p>
+        </div>
+      </div>
+      <div class="row font-montserrat">
+        <div class="col">
+          <ul class="list-group shadow rounded h5">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              1) Start free fun chat with random people.
+              <span class="material-icons-outlined">
+                assignment_returned
+              </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              2) If it clicks (^-^) Express mutual concent to verify email
+              addresses, and phone numbers.
+              <i class="far badge badge-pill badge-info fa-2x fa-check-circle"><span class="font-montserrat">
+                  FREE</span></i>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              3) Get in touch.
+              <i class="far badge badge-pill badge-info fa-2x fa-check-circle"><span class="font-montserrat">
+                  FREE</span></i>
+            </li>
+          </ul>
+        </div>
+      </div>
       <div class="col-lg-6">
         <div class="right">
           <img src="../assets/img/people2.svg" class="img-fluid rounded shadow shadow-cus img-anime rounded-circle" />
@@ -80,4 +98,4 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
