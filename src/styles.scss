@@ -225,7 +225,7 @@ button:disabled {
 #navbar {
   links {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
   }
 
   @media screen and (max-width: 992px) {
@@ -756,4 +756,4 @@ body {
 }
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/bootstrap';
