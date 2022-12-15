@@ -1,77 +1,7 @@
 <section id="chat">
     <div class="container">
         <div class="row">
-            <div class="col">
-                <!-- General Info -->
-                <div class="geninfo">
-                    <div class="image">
-                        <img src="../assets/img/girl.jpg">
-                    </div>
-                    <div class="info">
-                        <span>
-                            Hansdeep Singh, <small>36 Yrs (Australia, Melbourne)</small>
-                        </span>
-
-                    </div>
-                </div>
-
-                <!-- <div class="row grad-teal">
-                    <div class="col flex text-light">
-                        <img src="../assets/img/girl.jpg" width="80"
-                            class="img-fluid m-2 rounded border-info border shadow shadow-cus rounded-circle" />
-                        <div class="bg-green line"></div>
-                        <div class="ml-2">
-                            <h3>
-                                Hansdeep Singh
-                            </h3>
-                            <p class="col-light-blue">
-                                36 Yrs (Australia, Melbourne)
-                            </p>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-3">
-                <select name="" id="chatrooms">
-                    <option value="Public">
-                        Public chat
-                    </option>
-                    <option value="sincere">
-                        Sincere chat
-                    </option>
-                </select>
-                <div class="userlist">
-                    <div class="username">chat users</div>
-                    <div class="userinfo">37 | Aus</div>
-                </div>
-                <div class="userlist">
-                    <div class="username">chat users</div>
-                    <div class="userinfo">37 | Aus</div>
-                </div>
-                <div class="userlist">
-                    <div class="username">chat users</div>
-                    <div class="userinfo">37 | Aus</div>
-                </div>
-            </div>
             <div class="col-9">
-
-                <!-- Message Input Box -->
-                <div class="row mt-2">
-                    <div class="col-8">
-
-                        <input id="messageInput" name="message" class="messagebox" />
-                    </div>
-                    <div class="col-4">
-                        <input type="button" id="sendButton" class="btn float-right btn-dark m-1"
-                            value="Send Message" />
-                    </div>
-                </div>
-                <!-- Messages Container -->
-
                 <div class="row">
                     <div class="col-12">
                         <hr />
@@ -87,7 +17,23 @@
 
                     </div>
                 </div>
+
+                <!-- Message Input Box -->
+                <div class="row mt-2">
+                    <div class="col-8">
+
+                        <input name="message" />
+                    </div>
+                    <div class="col-4">
+                        <input type="button" id="sendButton" class="btn float-right btn-dark m-1"
+                            value="Send Message" />
+                    </div>
+                </div>
             </div>
+            <div class="col-3">
+                <app-chat-users></app-chat-users>
+            </div>
+
         </div>
     </div>
 </section>

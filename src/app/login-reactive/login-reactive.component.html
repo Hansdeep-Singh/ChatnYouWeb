@@ -15,8 +15,8 @@
                         required</div>
                     <ng-template #userNameLabel>User name</ng-template>
                 </div>
-                <input id="userName" type="text" name="userName" formControlName="userName" required
-                    (focus)="animateUserNameFn()" (mouseover)="animateUserNameFn()" class="form-control textinput">
+                <input id="userName" type="text" name="userName" formControlName="userName" class="form-control"
+                    required (focus)="animateUserNameFn()" (mouseover)="animateUserNameFn()">
             </div>
 
             <!-- Password -->
@@ -30,8 +30,8 @@
                         required</div>
                     <ng-template #passwordLabel>Password</ng-template>
                 </div>
-                <input (focus)="animatePasswordFn()" (mouseover)="animatePasswordFn()" class="form-control textinput"
-                    id="password" type="password" formControlName="password">
+                <input (focus)="animatePasswordFn()" (mouseover)="animatePasswordFn()" id="password" type="password"
+                    formControlName="password" class="form-control">
             </div>
 
             <!-- Remember me -->

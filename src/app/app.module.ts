@@ -19,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from "./auth/auth.guard";
 import { LogoutComponent } from './logout/logout.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ChatUsersComponent } from './chat-users/chat-users.component';
 
 // @Directive()
 @NgModule({
@@ -32,6 +33,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BaseComponent,
     LoginReactiveComponent,
     LogoutComponent,
+    ChatUsersComponent,
   ],
   imports: [
     BrowserModule,

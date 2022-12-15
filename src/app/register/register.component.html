@@ -16,8 +16,8 @@
             <ng-template #emailLabel>Email Address</ng-template>
 
           </div>
-          <input id="emailAddress" type="email" name="emailAddress" formControlName="emailAddress" required
-            (focus)="this.animateEmail=true" (mouseover)="this.animateEmail=true" class="form-control">
+          <input id="emailAddress" type="email" name="emailAddress" class="form-control" formControlName="emailAddress"
+            required (focus)="this.animateEmail=true" (mouseover)="this.animateEmail=true">
         </div>
       </div>
     </div>
@@ -32,8 +32,8 @@
           </div>
 
 
-          <input id="userName" type="text" name="userName" formControlName="userName" required
-            (focus)="this.animateUserName=true" (mouseover)="this.animateUserName=true" class="form-control">
+          <input id="userName" type="text" name="userName" class="form-control" formControlName="userName" required
+            (focus)="this.animateUserName=true" (mouseover)="this.animateUserName=true">
         </div>
       </div>
     </div>
@@ -50,8 +50,8 @@
           </div>
 
 
-          <input id="password" type="text" name="password" formControlName="password" required
-            (focus)="this.animatePassword=true" (mouseover)="this.animatePassword=true" class="form-control">
+          <input id="password" type="text" name="password" class="form-control" formControlName="password" required
+            (focus)="this.animatePassword=true" (mouseover)="this.animatePassword=true">
         </div>
       </div>
     </div>
@@ -67,7 +67,7 @@
             <ng-template #GenderLabel>Gender</ng-template>
           </div>
 
-          <select id="gender" class="form-control" formControlName="gender" (focus)="this.animateGender=true"
+          <select id="gender" formControlName="gender" class="form-control" (focus)="this.animateGender=true"
             (mouseover)="this.animateGender=true" required>
             <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
           </select>
@@ -84,8 +84,8 @@
             <ng-template #AgeLabel>Age</ng-template>
           </div>
 
-          <select id="age" class="form-control" formControlName="age" (focus)="this.animateAge=true"
-            (mouseover)="this.animateAge=true" required>
+          <select id="age" class="form-control" formControlName="age" class="form-control"
+            (focus)="this.animateAge=true" (mouseover)="this.animateAge=true" required>
             <option *ngFor="let age of ages" [value]="age">{{age}}</option>
           </select>
 
@@ -111,7 +111,7 @@
 
 
 
-          <select (change)="onChange($event.target.value)" id="Country" class="form-control" formControlName="country"
+          <select (change)="onChange($event.target.value)" id="Country" formControlName="country" class="form-control"
             (focus)="this.animateCountry=true" (mouseover)="this.animateCountry=true" required>
             <option *ngFor="let country of countries" [value]="country?.countryId">{{country?.countryName}}</option>
           </select>
@@ -128,7 +128,7 @@
             <ng-template #cityLabel>City</ng-template>
           </div>
 
-          <select id="City" class="form-control" formControlName="city" (focus)="this.animateCity=true"
+          <select id="City" formControlName="city" class="form-control" (focus)="this.animateCity=true"
             (mouseover)="this.animateCity=true" required>
             <option *ngFor="let city of cities" [value]="city?.cityId">{{city?.cityName}}</option>
           </select>

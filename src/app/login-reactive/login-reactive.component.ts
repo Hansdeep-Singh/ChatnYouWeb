@@ -38,7 +38,6 @@ export class LoginReactiveComponent implements OnInit {
   submit(post: any) {
     this.callsService.post("User", "LoginViaUserName", post)
       .subscribe((data) => {
-        console.log(data);
         const notify = data.notify;
         if (data?.success) {
           const payload = JSON.parse(data?.payload);

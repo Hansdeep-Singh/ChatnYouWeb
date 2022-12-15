@@ -12,7 +12,6 @@ import { appConsts } from "src/app/constants/const";
 export class CallsService {
   readonly ROOT_URL = environment.ROOT_URL;
   constructor(private http: HttpClient) { }
-
   get(
     controller: string,
     method: string,
@@ -39,6 +38,13 @@ export class CallsService {
       .post<any>(this.ROOT_URL + route, model)
       .pipe(catchError(this.handleError));
   }
+
+  async getLocal(fileName: string) {
+    return fetch('./assets/data/chatUsers.json').then(res => res.json())
+      .then((data) => { return data });
+  }
+
+
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {

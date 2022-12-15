@@ -62,6 +62,14 @@ input[type=checkbox]:checked {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%2300ff5d'/%3e%3c/svg%3e");
 }
 
+input[type=text],
+input[type=password],
+input[type=email],
+select {
+  -webkit-border-radius: 25px !important;
+  -moz-border-radius: 25px !important;
+  border-radius: 25px !important;
+}
 
 a {
   color: #000000;
@@ -244,6 +252,22 @@ button:disabled {
     a {
       color: #fff;
     }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      font-weight: 400;
+      color: #fff;
+
+      div {
+        margin-right: 30px;
+      }
+
+      img {
+        margin-right: 5px;
+        border-radius: 50%;
+      }
+    }
   }
 
   #login {
@@ -296,12 +320,7 @@ button:disabled {
   color: $primary-100;
 }
 
-.form-control {
-  -webkit-border-radius: 25px !important;
-  -moz-border-radius: 25px !important;
-  border-radius: 25px !important;
-  border: none !important;
-}
+
 
 .navbar-nav li {
   margin-left: 10px;
@@ -700,51 +719,6 @@ input:focus {
 
 }
 
-#navigation {
-  display: flex;
-  background-color: $primary-100;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 0px;
-
-  .logo {
-    a {
-      color: $white;
-    }
-  }
-
-  .navigation {
-    display: flex;
-
-    .toggler {
-      padding: 10px;
-      background-color: #000000;
-    }
-
-    @media only screen and (min-width: 600px) {
-      .toggler {
-        display: none;
-      }
-    }
-
-    ul {
-      display: flex;
-      list-style: none;
-      margin: initial;
-      padding: initial;
-    }
-
-    ul li {
-      display: flex;
-      align-items: center;
-
-
-      a {
-        color: #fff;
-      }
-    }
-  }
-}
 
 #chat {
   .geninfo {

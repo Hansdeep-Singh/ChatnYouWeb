@@ -66,7 +66,8 @@
     <links>
       <!-- Login form -->
       <div>
-        <div *ngIf="logged; else loginForm">
+        <div *ngIf="logged; else loginForm" class="profile">
+          <div> <img src="../assets/img/girl.jpg" width="30"> <span>Hi, Hansdeep</span></div>
           <app-logout></app-logout>
         </div>
         <ng-template #loginForm>
